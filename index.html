@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Company Channels</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.2/babel.min.js"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #F7F6F3; }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: #D0CECC; border-radius: 3px; }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+
+const structure = [
+  {
+    id: "hardware",
+    emoji: "🔩",
+    name: "Hardware",
+    color: "#B45309",
+    tagline: "Engineering physical systems and sensor platforms",
+    overview: "The Hardware department designs, builds, and maintains all physical systems and sensor platforms. From prototyping through production, we ensure our hardware solutions meet rigorous performance, reliability, and environmental standards.",
+    capabilities: [
+      "Hardware design & prototyping",
+      "Embedded systems & firmware integration",
+      "Environmental & stress testing",
+      "Component sourcing & supply chain management",
+      "Field deployment & maintenance support",
+      "Hardware lifecycle management",
+    ],
+    limitations: [
+      "Software integration coordinated with Software department",
+      "Large-scale manufacturing requires third-party partners",
+      "Lead times of 6–12 weeks for custom components",
+    ],
+    projects: [
+      { name: "Gen 2 Sensor Array Prototype", status: "In Progress", progress: 55, due: "May 10" },
+      { name: "Power Systems Optimization", status: "Review", progress: 88, due: "Mar 28" },
+      { name: "Enclosure Ruggedization", status: "Completed", progress: 100, due: "Mar 1" },
+      { name: "Field Kit Standardization", status: "Planning", progress: 12, due: "Jun 30" },
+    ],
+    children: [
+      {
+        id: "mda-buoy",
+        emoji: "🛟",
+        name: "MDA Buoy",
+        color: "#0369A1",
+        tagline: "Maritime domain awareness sensor platform",
+        overview: "MDA Buoy is our autonomous maritime sensor buoy program. This system provides persistent, remote ocean monitoring capabilities for maritime domain awareness, environmental sensing, and threat detection in contested or denied environments.",
+        capabilities: [
+          "Autonomous ocean-surface data collection",
+          "Multi-spectral sensor payload integration",
+          "Satellite & RF communications relay",
+          "Low-power long-duration deployment (90+ days)",
+          "Encrypted telemetry & remote tasking",
+          "Modular payload bay for mission adaptability",
+        ],
+        limitations: [
+          "Deployment logistics require maritime coordination",
+          "Real-time comms dependent on SATCOM availability",
+          "Payload customization lead time: 4–6 weeks",
+        ],
+        projects: [
+          { name: "Buoy v2.1 Sea Trial", status: "In Progress", progress: 62, due: "Apr 15" },
+          { name: "Solar Panel Efficiency Upgrade", status: "In Progress", progress: 44, due: "May 1" },
+          { name: "Acoustic Sensor Integration", status: "Planning", progress: 8, due: "Jul 1" },
+          { name: "Prototype Field Validation", status: "Completed", progress: 100, due: "Feb 20" },
+        ],
+      },
+    ],
+  },
+  {
+    id: "software",
+    emoji: "💻",
+    name: "Software",
+    color: "#2D6BE4",
+    tagline: "Building intelligent software platforms and tools",
+    overview: "The Software department develops and maintains all software systems across the organization, from backend data infrastructure and APIs to front-end applications and mission tools. We follow agile practices and own the full development lifecycle.",
+    capabilities: [
+      "Full-stack application development",
+      "Cloud-native architecture (AWS/Azure)",
+      "API design, integration & management",
+      "DevSecOps & CI/CD pipeline ownership",
+      "Data pipeline & storage systems",
+      "Cybersecurity & system hardening",
+    ],
+    limitations: [
+      "Hardware firmware owned jointly with Hardware team",
+      "UI/UX design input required from stakeholders",
+      "Government-accredited systems follow ATO timelines",
+    ],
+    projects: [
+      { name: "Platform Core v3 Rebuild", status: "In Progress", progress: 70, due: "Apr 30" },
+      { name: "SSO & Auth Overhaul", status: "Review", progress: 92, due: "Mar 20" },
+      { name: "Data Ingestion Pipeline", status: "In Progress", progress: 48, due: "May 15" },
+      { name: "Security Audit Remediation", status: "Completed", progress: 100, due: "Mar 5" },
+    ],
+    children: [
+      {
+        id: "horizon",
+        emoji: "🌅",
+        name: "Horizon",
+        color: "#7C3AED",
+        tagline: "Situational awareness and mission command software",
+        overview: "Horizon is our flagship mission software platform, providing operators with real-time situational awareness, data fusion, and command-and-control capabilities. It integrates feeds from hardware sensors, third-party data sources, and allied systems into a unified operational picture.",
+        capabilities: [
+          "Real-time multi-source data fusion",
+          "Common operating picture (COP) visualization",
+          "Alert & event management workflows",
+          "Role-based access control & audit logging",
+          "Integration with MDA Buoy & external sensors",
+          "Exportable reports & mission debriefs",
+        ],
+        limitations: [
+          "Classified environments require separate ATO",
+          "Mobile/offline mode still in development",
+          "Third-party data integrations on request basis",
+        ],
+        projects: [
+          { name: "Horizon v4.0 Release", status: "In Progress", progress: 65, due: "Apr 20" },
+          { name: "Offline Mode (Edge Deploy)", status: "In Progress", progress: 30, due: "Jun 1" },
+          { name: "MDA Buoy Data Connector", status: "Review", progress: 85, due: "Mar 22" },
+          { name: "UX Overhaul", status: "Planning", progress: 10, due: "Jul 15" },
+        ],
+      },
+    ],
+  },
+  {
+    id: "services",
+    emoji: "🤝",
+    name: "Services",
+    color: "#059669",
+    tagline: "Delivering mission support and professional services",
+    overview: "The Services department delivers technical and mission-support services to our government and enterprise customers. We translate our hardware and software capabilities into operational programs, providing training, integration, fielding, and advisory services.",
+    capabilities: [
+      "Program management & delivery",
+      "System integration & fielding",
+      "Customer training & technical enablement",
+      "Operations & maintenance support",
+      "Mission advisory & concept development",
+      "Government contract management",
+    ],
+    limitations: [
+      "Delivery timelines subject to contract vehicle constraints",
+      "On-site support requires customer-side access approvals",
+      "Classified work scoped per individual program",
+    ],
+    projects: [
+      { name: "Q2 Delivery Milestone Reviews", status: "In Progress", progress: 58, due: "Mar 31" },
+      { name: "Customer Onboarding Pack", status: "Review", progress: 80, due: "Mar 18" },
+      { name: "Field Support Playbook", status: "Completed", progress: 100, due: "Mar 1" },
+      { name: "FY25 Program Kickoffs", status: "Planning", progress: 20, due: "Apr 15" },
+    ],
+    children: [
+      {
+        id: "harbinger",
+        emoji: "⚡",
+        name: "Harbinger",
+        color: "#DC2626",
+        tagline: "Early warning and detection program support",
+        overview: "Harbinger is our early warning and threat detection program. This team delivers fielded solutions and advisory services focused on detecting, characterizing, and reporting on emerging threats across maritime, airspace, and cyber domains.",
+        capabilities: [
+          "Threat detection system deployment",
+          "Sensor fusion & anomaly analysis",
+          "Operator training & TTPs development",
+          "Rapid fielding & integration support",
+          "Classified program delivery",
+          "Interoperability with allied systems",
+        ],
+        limitations: [
+          "Operations governed by program-specific security protocols",
+          "Hardware supply dependent on MDA Buoy team",
+          "Software updates follow Horizon release schedule",
+        ],
+        projects: [
+          { name: "Phase 2 Deployment", status: "In Progress", progress: 72, due: "Apr 10" },
+          { name: "TTP Documentation Update", status: "Review", progress: 90, due: "Mar 20" },
+          { name: "Operator Certification Program", status: "Planning", progress: 15, due: "Jun 1" },
+          { name: "Initial Fielding (Phase 1)", status: "Completed", progress: 100, due: "Feb 15" },
+        ],
+      },
+      {
+        id: "dai",
+        emoji: "🧠",
+        name: "DAI",
+        color: "#0891B2",
+        tagline: "Data analytics and intelligence services",
+        overview: "DAI (Data Analytics & Intelligence) delivers advanced data analytics, machine learning, and intelligence analysis services. We turn raw sensor and operational data into actionable intelligence products for government and defense customers.",
+        capabilities: [
+          "Advanced data analytics & visualization",
+          "Machine learning model development",
+          "Intelligence product generation",
+          "Custom reporting & dashboard delivery",
+          "Data pipeline design & implementation",
+          "Classified data handling & processing",
+        ],
+        limitations: [
+          "Production ML deployment coordinated with Software",
+          "Data access governed by customer data agreements",
+          "Real-time analytics requires pre-approved infrastructure",
+        ],
+        projects: [
+          { name: "Anomaly Detection Model v2", status: "In Progress", progress: 52, due: "Apr 25" },
+          { name: "Intel Dashboard — Customer A", status: "In Progress", progress: 75, due: "Mar 28" },
+          { name: "Data Pipeline Architecture", status: "Completed", progress: 100, due: "Mar 3" },
+          { name: "Predictive Analytics POC", status: "Planning", progress: 5, due: "Jul 1" },
+        ],
+      },
+      {
+        id: "cdao",
+        emoji: "🏛️",
+        name: "CDAO",
+        color: "#7C3AED",
+        tagline: "Chief Digital & AI Office program support",
+        overview: "CDAO (Chief Digital and Artificial Intelligence Office) support delivers advisory, integration, and fielding services aligned to DoD CDAO initiatives. We help customers adopt AI-enabled tools, digital transformation practices, and enterprise data strategies at scale.",
+        capabilities: [
+          "DoD CDAO program alignment & compliance",
+          "AI/ML adoption roadmap development",
+          "Digital transformation advisory",
+          "Enterprise data strategy consulting",
+          "Responsible AI governance frameworks",
+          "Interoperability with JADC2 & enterprise systems",
+        ],
+        limitations: [
+          "Policy compliance timelines set by DoD/CDAO office",
+          "AI ethics & responsible AI reviews add lead time",
+          "Access to classified systems per program authorization",
+        ],
+        projects: [
+          { name: "AI Adoption Roadmap — Customer B", status: "In Progress", progress: 60, due: "Apr 30" },
+          { name: "Responsible AI Framework", status: "Review", progress: 88, due: "Mar 25" },
+          { name: "Data Governance Playbook", status: "Completed", progress: 100, due: "Feb 28" },
+          { name: "JADC2 Integration Assessment", status: "Planning", progress: 18, due: "Jun 15" },
+        ],
+      },
+    ],
+  },
+];
+
+const statusConfig = {
+  "In Progress": { color: "#2D6BE4", bg: "#EFF4FF" },
+  "Review":      { color: "#D97706", bg: "#FFFBEB" },
+  "Completed":   { color: "#059669", bg: "#ECFDF5" },
+  "Planning":    { color: "#7C3AED", bg: "#F5F3FF" },
+};
+
+function getAllChannels(str) {
+  const list = [];
+  str.forEach((dept) => {
+    list.push({ ...dept, isParent: true, children: undefined });
+    if (dept.children) {
+      dept.children.forEach((child) => {
+        list.push({ ...child, isParent: false, parentId: dept.id, parentName: dept.name });
+      });
+    }
+  });
+  return list;
+}
+
+function App() {
+  const allChannels = getAllChannels(structure);
+  const [activeId, setActiveId] = React.useState("hardware");
+  const [activeTab, setActiveTab] = React.useState("overview");
+  const [expanded, setExpanded] = React.useState({ hardware: true, software: true, services: true });
+
+  const dept = allChannels.find((d) => d.id === activeId);
+  const toggleExpand = (id) => setExpanded((prev) => ({ ...prev, [id]: !prev[id] }));
+
+  return (
+    <div style={{ fontFamily: "Georgia, serif", display: "flex", height: "100vh", background: "#F7F6F3", color: "#37352F" }}>
+
+      {/* Sidebar */}
+      <div style={{ width: 248, background: "#FBFAF9", borderRight: "1px solid #E8E5E0", display: "flex", flexDirection: "column", padding: "16px 0", flexShrink: 0, overflowY: "auto" }}>
+        <div style={{ padding: "0 16px 16px", borderBottom: "1px solid #E8E5E0", marginBottom: 8 }}>
+          <div style={{ fontSize: 13, fontWeight: 700, color: "#37352F", letterSpacing: "-0.3px" }}>Your Company</div>
+          <div style={{ fontSize: 11, color: "#9B9A97", marginTop: 2, fontFamily: "sans-serif" }}>Department Channels</div>
+        </div>
+
+        {structure.map((d) => (
+          <div key={d.id}>
+            <div style={{ display: "flex", alignItems: "center", margin: "1px 8px", borderRadius: 4, background: activeId === d.id ? "#E8E5E0" : "transparent" }}>
+              <button onClick={() => toggleExpand(d.id)} style={{ background: "none", border: "none", cursor: "pointer", padding: "6px 4px 6px 8px", color: "#9B9A97", fontSize: 10, lineHeight: 1 }}>
+                {expanded[d.id] ? "▾" : "▸"}
+              </button>
+              <button onClick={() => { setActiveId(d.id); setActiveTab("overview"); }} style={{ flex: 1, display: "flex", alignItems: "center", gap: 7, padding: "6px 8px 6px 2px", background: "transparent", border: "none", cursor: "pointer", textAlign: "left" }}>
+                <span style={{ fontSize: 14 }}>{d.emoji}</span>
+                <span style={{ fontSize: 13, color: "#37352F", fontFamily: "sans-serif", fontWeight: activeId === d.id ? 700 : 600 }}>{d.name}</span>
+                {activeId === d.id && <span style={{ marginLeft: "auto", width: 6, height: 6, borderRadius: "50%", background: d.color, flexShrink: 0 }} />}
+              </button>
+            </div>
+            {expanded[d.id] && d.children && d.children.map((child) => (
+              <button key={child.id} onClick={() => { setActiveId(child.id); setActiveTab("overview"); }} style={{
+                display: "flex", alignItems: "center", gap: 7,
+                padding: "5px 12px 5px 36px", width: "calc(100% - 16px)", margin: "1px 8px",
+                background: activeId === child.id ? "#E8E5E0" : "transparent",
+                border: "none", cursor: "pointer", textAlign: "left", borderRadius: 4,
+              }}>
+                <span style={{ fontSize: 13 }}>{child.emoji}</span>
+                <span style={{ fontSize: 12, color: activeId === child.id ? "#37352F" : "#6B6B6B", fontFamily: "sans-serif", fontWeight: activeId === child.id ? 600 : 400 }}>{child.name}</span>
+                {activeId === child.id && <span style={{ marginLeft: "auto", width: 5, height: 5, borderRadius: "50%", background: child.color, flexShrink: 0 }} />}
+              </button>
+            ))}
+          </div>
+        ))}
+      </div>
+
+      {/* Main Content */}
+      <div style={{ flex: 1, overflow: "auto" }}>
+        <div style={{ padding: "40px 60px 0", maxWidth: 860 }}>
+          {dept.parentName && (
+            <div style={{ fontSize: 11, color: "#9B9A97", fontFamily: "sans-serif", marginBottom: 10 }}>
+              <span style={{ cursor: "pointer", textDecoration: "underline" }} onClick={() => { setActiveId(dept.parentId); setActiveTab("overview"); }}>{dept.parentName}</span>
+              <span style={{ margin: "0 5px" }}>›</span>
+              <span style={{ color: "#37352F", fontWeight: 600 }}>{dept.name}</span>
+            </div>
+          )}
+          <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 8 }}>
+            <div style={{ fontSize: 40 }}>{dept.emoji}</div>
+            <div>
+              <h1 style={{ margin: 0, fontSize: 30, fontWeight: 700, letterSpacing: "-0.5px", color: "#37352F" }}>{dept.name}</h1>
+              <p style={{ margin: 0, fontSize: 14, color: "#9B9A97", fontFamily: "sans-serif", marginTop: 3 }}>{dept.tagline}</p>
+            </div>
+            <div style={{ marginLeft: "auto", padding: "4px 12px", borderRadius: 20, background: dept.color + "18", border: `1px solid ${dept.color}35`, flexShrink: 0 }}>
+              <span style={{ fontSize: 11, fontWeight: 700, color: dept.color, fontFamily: "sans-serif", textTransform: "uppercase", letterSpacing: "0.06em" }}>
+                {dept.parentName ? dept.parentName : "Department"}
+              </span>
+            </div>
+          </div>
+          <div style={{ height: 1, background: "#E8E5E0", margin: "20px 0 0" }} />
+          <div style={{ display: "flex" }}>
+            {["overview", "capabilities", "projects"].map((tab) => (
+              <button key={tab} onClick={() => setActiveTab(tab)} style={{
+                padding: "10px 18px", border: "none", background: "transparent", cursor: "pointer",
+                fontSize: 13, fontFamily: "sans-serif", textTransform: "capitalize",
+                color: activeTab === tab ? dept.color : "#9B9A97",
+                fontWeight: activeTab === tab ? 600 : 400,
+                borderBottom: `2px solid ${activeTab === tab ? dept.color : "transparent"}`,
+                transition: "all 0.15s",
+              }}>{tab}</button>
+            ))}
+          </div>
+          <div style={{ height: 1, background: "#E8E5E0" }} />
+        </div>
+
+        <div style={{ padding: "32px 60px 60px", maxWidth: 860 }}>
+
+          {activeTab === "overview" && (
+            <div>
+              <div style={{ background: "white", borderRadius: 8, padding: 24, border: "1px solid #E8E5E0", marginBottom: 20 }}>
+                <div style={{ fontSize: 13, fontWeight: 700, color: "#37352F", fontFamily: "sans-serif", marginBottom: 12 }}>About this {dept.parentName ? "program" : "department"}</div>
+                <p style={{ margin: 0, fontSize: 14, lineHeight: 1.7, color: "#37352F", fontFamily: "sans-serif" }}>{dept.overview}</p>
+              </div>
+              <div style={{ fontSize: 11, fontWeight: 700, color: "#9B9A97", textTransform: "uppercase", letterSpacing: "0.08em", fontFamily: "sans-serif", marginBottom: 12 }}>Active Projects</div>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+                {dept.projects.map((p) => {
+                  const s = statusConfig[p.status];
+                  return (
+                    <div key={p.name} style={{ background: "white", borderRadius: 8, padding: 16, border: "1px solid #E8E5E0" }}>
+                      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 10 }}>
+                        <div style={{ fontSize: 13, fontWeight: 600, color: "#37352F", fontFamily: "sans-serif", lineHeight: 1.3 }}>{p.name}</div>
+                        <span style={{ fontSize: 11, padding: "2px 8px", borderRadius: 20, background: s.bg, color: s.color, fontFamily: "sans-serif", fontWeight: 600, flexShrink: 0, marginLeft: 8 }}>{p.status}</span>
+                      </div>
+                      <div style={{ height: 4, background: "#F0EEE9", borderRadius: 4, overflow: "hidden" }}>
+                        <div style={{ height: "100%", width: `${p.progress}%`, background: dept.color, borderRadius: 4 }} />
+                      </div>
+                      <div style={{ display: "flex", justifyContent: "space-between", marginTop: 6 }}>
+                        <span style={{ fontSize: 11, color: "#9B9A97", fontFamily: "sans-serif" }}>{p.progress}% complete</span>
+                        <span style={{ fontSize: 11, color: "#9B9A97", fontFamily: "sans-serif" }}>Due {p.due}</span>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
+          {activeTab === "capabilities" && (
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
+              <div style={{ background: "white", borderRadius: 8, padding: 24, border: "1px solid #E8E5E0" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 16 }}>
+                  <div style={{ width: 20, height: 20, borderRadius: 4, background: dept.color, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                    <span style={{ fontSize: 11, color: "white" }}>✓</span>
+                  </div>
+                  <span style={{ fontSize: 13, fontWeight: 700, fontFamily: "sans-serif", color: "#37352F" }}>What we can do</span>
+                </div>
+                {dept.capabilities.map((c) => (
+                  <div key={c} style={{ display: "flex", gap: 10, marginBottom: 12, alignItems: "flex-start" }}>
+                    <div style={{ width: 6, height: 6, borderRadius: "50%", background: dept.color, marginTop: 6, flexShrink: 0 }} />
+                    <span style={{ fontSize: 13, color: "#37352F", fontFamily: "sans-serif", lineHeight: 1.5 }}>{c}</span>
+                  </div>
+                ))}
+              </div>
+              <div style={{ background: "white", borderRadius: 8, padding: 24, border: "1px solid #E8E5E0" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 16 }}>
+                  <div style={{ width: 20, height: 20, borderRadius: 4, background: "#F1F0EE", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                    <span style={{ fontSize: 11, color: "#9B9A97" }}>—</span>
+                  </div>
+                  <span style={{ fontSize: 13, fontWeight: 700, fontFamily: "sans-serif", color: "#37352F" }}>Limitations & scope</span>
+                </div>
+                {dept.limitations.map((l) => (
+                  <div key={l} style={{ display: "flex", gap: 10, marginBottom: 12, alignItems: "flex-start" }}>
+                    <div style={{ width: 6, height: 6, borderRadius: "50%", background: "#D0CECC", marginTop: 6, flexShrink: 0 }} />
+                    <span style={{ fontSize: 13, color: "#6B6B6B", fontFamily: "sans-serif", lineHeight: 1.5 }}>{l}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {activeTab === "projects" && (
+            <div style={{ background: "white", borderRadius: 8, border: "1px solid #E8E5E0", overflow: "hidden" }}>
+              <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr 80px", padding: "10px 20px", borderBottom: "1px solid #E8E5E0", background: "#FBFAF9" }}>
+                {["Project", "Status", "Progress", "Due"].map((h) => (
+                  <div key={h} style={{ fontSize: 11, fontWeight: 700, color: "#9B9A97", textTransform: "uppercase", letterSpacing: "0.06em", fontFamily: "sans-serif" }}>{h}</div>
+                ))}
+              </div>
+              {dept.projects.map((p, i) => {
+                const s = statusConfig[p.status];
+                return (
+                  <div key={p.name}
+                    style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr 80px", padding: "14px 20px", alignItems: "center", borderBottom: i < dept.projects.length - 1 ? "1px solid #F0EEE9" : "none" }}
+                    onMouseEnter={(e) => e.currentTarget.style.background = "#FAFAF8"}
+                    onMouseLeave={(e) => e.currentTarget.style.background = "transparent"}
+                  >
+                    <div style={{ fontSize: 13, fontWeight: 500, color: "#37352F", fontFamily: "sans-serif" }}>{p.name}</div>
+                    <div><span style={{ fontSize: 11, padding: "3px 10px", borderRadius: 20, background: s.bg, color: s.color, fontFamily: "sans-serif", fontWeight: 600 }}>{p.status}</span></div>
+                    <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                      <div style={{ flex: 1, height: 4, background: "#F0EEE9", borderRadius: 4, maxWidth: 100 }}>
+                        <div style={{ height: "100%", width: `${p.progress}%`, background: dept.color, borderRadius: 4 }} />
+                      </div>
+                      <span style={{ fontSize: 11, color: "#9B9A97", fontFamily: "sans-serif", minWidth: 28 }}>{p.progress}%</span>
+                    </div>
+                    <div style={{ fontSize: 12, color: "#9B9A97", fontFamily: "sans-serif" }}>{p.due}</div>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+
+        </div>
+      </div>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+  </script>
+</body>
+</html>
