@@ -3,16 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Spear AI Departments</title>
+  <title>Company Channels</title>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.2/babel.min.js"></script>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { background: #F7F6F3; }
+    body { background: #FFFFFF; font-family: 'Archivo', sans-serif; }
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: transparent; }
-    ::-webkit-scrollbar-thumb { background: #D0CECC; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb { background: #374151; border-radius: 3px; }
   </style>
 </head>
 <body>
@@ -21,25 +22,11 @@
 
 const structure = [
   {
-    id: "hardware",
-    emoji: "🔩",
-    name: "Hardware",
-    color: "#B45309",
+    id: "hardware", emoji: "🔩", name: "Hardware", color: "#B45309",
     tagline: "Engineering physical systems and sensor platforms",
     overview: "The Hardware department designs, builds, and maintains all physical systems and sensor platforms. From prototyping through production, we ensure our hardware solutions meet rigorous performance, reliability, and environmental standards.",
-    capabilities: [
-      "Hardware design & prototyping",
-      "Embedded systems & firmware integration",
-      "Environmental & stress testing",
-      "Component sourcing & supply chain management",
-      "Field deployment & maintenance support",
-      "Hardware lifecycle management",
-    ],
-    limitations: [
-      "Software integration coordinated with Software department",
-      "Large-scale manufacturing requires third-party partners",
-      "Lead times of 6–12 weeks for custom components",
-    ],
+    capabilities: ["Hardware design & prototyping","Embedded systems & firmware integration","Environmental & stress testing","Component sourcing & supply chain management","Field deployment & maintenance support","Hardware lifecycle management"],
+    limitations: ["Software integration coordinated with Software department","Large-scale manufacturing requires third-party partners","Lead times of 6–12 weeks for custom components"],
     projects: [
       { name: "Gen 2 Sensor Array Prototype", status: "In Progress", progress: 55, due: "May 10" },
       { name: "Power Systems Optimization", status: "Review", progress: 88, due: "Mar 28" },
@@ -58,68 +45,38 @@ const structure = [
       { name: "Name", title: "Supply Chain Specialist", email: "email@company.com" },
       { name: "Name", title: "Field Support Technician", email: "email@company.com" },
     ],
-    children: [
-      {
-        id: "mda-buoy",
-        emoji: "🛟",
-        name: "MDA Buoy",
-        color: "#0369A1",
-        tagline: "Maritime domain awareness sensor platform",
-        overview: "MDA Buoy is our autonomous maritime sensor buoy program. This system provides persistent, remote ocean monitoring capabilities for maritime domain awareness, environmental sensing, and threat detection in contested or denied environments.",
-        capabilities: [
-          "Autonomous ocean-surface data collection",
-          "Multi-spectral sensor payload integration",
-          "Satellite & RF communications relay",
-          "Low-power long-duration deployment (90+ days)",
-          "Encrypted telemetry & remote tasking",
-          "Modular payload bay for mission adaptability",
-        ],
-        limitations: [
-          "Deployment logistics require maritime coordination",
-          "Real-time comms dependent on SATCOM availability",
-          "Payload customization lead time: 4–6 weeks",
-        ],
-        projects: [
-          { name: "Buoy v2.1 Sea Trial", status: "In Progress", progress: 62, due: "Apr 15" },
-          { name: "Solar Panel Efficiency Upgrade", status: "In Progress", progress: 44, due: "May 1" },
-          { name: "Acoustic Sensor Integration", status: "Planning", progress: 8, due: "Jul 1" },
-          { name: "Prototype Field Validation", status: "Completed", progress: 100, due: "Feb 20" },
-        ],
-        team: [
-          { name: "Name", title: "Team Lead", email: "email@company.com", isLead: true },
-          { name: "Name", title: "Senior Systems Engineer", email: "email@company.com" },
-          { name: "Name", title: "Maritime Systems Engineer", email: "email@company.com" },
-          { name: "Name", title: "Sensor Integration Engineer", email: "email@company.com" },
-          { name: "Name", title: "Firmware Engineer", email: "email@company.com" },
-          { name: "Name", title: "Communications Engineer", email: "email@company.com" },
-          { name: "Name", title: "Power Systems Engineer", email: "email@company.com" },
-          { name: "Name", title: "Test Engineer", email: "email@company.com" },
-          { name: "Name", title: "Field Operations Specialist", email: "email@company.com" },
-          { name: "Name", title: "Program Coordinator", email: "email@company.com" },
-        ],
-      },
-    ],
+    children: [{
+      id: "mda-buoy", emoji: "🛟", name: "MDA Buoy", color: "#0369A1",
+      tagline: "Maritime domain awareness sensor platform",
+      overview: "MDA Buoy is our autonomous maritime sensor buoy program. This system provides persistent, remote ocean monitoring capabilities for maritime domain awareness, environmental sensing, and threat detection in contested or denied environments.",
+      capabilities: ["Autonomous ocean-surface data collection","Multi-spectral sensor payload integration","Satellite & RF communications relay","Low-power long-duration deployment (90+ days)","Encrypted telemetry & remote tasking","Modular payload bay for mission adaptability"],
+      limitations: ["Deployment logistics require maritime coordination","Real-time comms dependent on SATCOM availability","Payload customization lead time: 4–6 weeks"],
+      projects: [
+        { name: "Buoy v2.1 Sea Trial", status: "In Progress", progress: 62, due: "Apr 15" },
+        { name: "Solar Panel Efficiency Upgrade", status: "In Progress", progress: 44, due: "May 1" },
+        { name: "Acoustic Sensor Integration", status: "Planning", progress: 8, due: "Jul 1" },
+        { name: "Prototype Field Validation", status: "Completed", progress: 100, due: "Feb 20" },
+      ],
+      team: [
+        { name: "Name", title: "Team Lead", email: "email@company.com", isLead: true },
+        { name: "Name", title: "Senior Systems Engineer", email: "email@company.com" },
+        { name: "Name", title: "Maritime Systems Engineer", email: "email@company.com" },
+        { name: "Name", title: "Sensor Integration Engineer", email: "email@company.com" },
+        { name: "Name", title: "Firmware Engineer", email: "email@company.com" },
+        { name: "Name", title: "Communications Engineer", email: "email@company.com" },
+        { name: "Name", title: "Power Systems Engineer", email: "email@company.com" },
+        { name: "Name", title: "Test Engineer", email: "email@company.com" },
+        { name: "Name", title: "Field Operations Specialist", email: "email@company.com" },
+        { name: "Name", title: "Program Coordinator", email: "email@company.com" },
+      ],
+    }],
   },
   {
-    id: "software",
-    emoji: "💻",
-    name: "Software",
-    color: "#2D6BE4",
+    id: "software", emoji: "💻", name: "Software", color: "#2D6BE4",
     tagline: "Building intelligent software platforms and tools",
     overview: "The Software department develops and maintains all software systems across the organization, from backend data infrastructure and APIs to front-end applications and mission tools. We follow agile practices and own the full development lifecycle.",
-    capabilities: [
-      "Full-stack application development",
-      "Cloud-native architecture (AWS/Azure)",
-      "API design, integration & management",
-      "DevSecOps & CI/CD pipeline ownership",
-      "Data pipeline & storage systems",
-      "Cybersecurity & system hardening",
-    ],
-    limitations: [
-      "Hardware firmware owned jointly with Hardware team",
-      "UI/UX design input required from stakeholders",
-      "Government-accredited systems follow ATO timelines",
-    ],
+    capabilities: ["Full-stack application development","Cloud-native architecture (AWS/Azure)","API design, integration & management","DevSecOps & CI/CD pipeline ownership","Data pipeline & storage systems","Cybersecurity & system hardening"],
+    limitations: ["Hardware firmware owned jointly with Hardware team","UI/UX design input required from stakeholders","Government-accredited systems follow ATO timelines"],
     projects: [
       { name: "Platform Core v3 Rebuild", status: "In Progress", progress: 70, due: "Apr 30" },
       { name: "SSO & Auth Overhaul", status: "Review", progress: 92, due: "Mar 20" },
@@ -129,7 +86,6 @@ const structure = [
     team: [
       { name: "Name", title: "Team Lead", email: "email@company.com", isLead: true },
       { name: "Name", title: "Senior Software Engineer", email: "email@company.com" },
-      { name: "Name", title: "Senior Software Engineer", email: "email@company.com" },
       { name: "Name", title: "Backend Engineer", email: "email@company.com" },
       { name: "Name", title: "Backend Engineer", email: "email@company.com" },
       { name: "Name", title: "Frontend Engineer", email: "email@company.com" },
@@ -138,68 +94,38 @@ const structure = [
       { name: "Name", title: "Cybersecurity Engineer", email: "email@company.com" },
       { name: "Name", title: "QA Engineer", email: "email@company.com" },
     ],
-    children: [
-      {
-        id: "horizon",
-        emoji: "🌅",
-        name: "Horizon",
-        color: "#7C3AED",
-        tagline: "Situational awareness and mission command software",
-        overview: "Horizon is our flagship mission software platform, providing operators with real-time situational awareness, data fusion, and command-and-control capabilities. It integrates feeds from hardware sensors, third-party data sources, and allied systems into a unified operational picture.",
-        capabilities: [
-          "Real-time multi-source data fusion",
-          "Common operating picture (COP) visualization",
-          "Alert & event management workflows",
-          "Role-based access control & audit logging",
-          "Integration with MDA Buoy & external sensors",
-          "Exportable reports & mission debriefs",
-        ],
-        limitations: [
-          "Classified environments require separate ATO",
-          "Mobile/offline mode still in development",
-          "Third-party data integrations on request basis",
-        ],
-        projects: [
-          { name: "Horizon v4.0 Release", status: "In Progress", progress: 65, due: "Apr 20" },
-          { name: "Offline Mode (Edge Deploy)", status: "In Progress", progress: 30, due: "Jun 1" },
-          { name: "MDA Buoy Data Connector", status: "Review", progress: 85, due: "Mar 22" },
-          { name: "UX Overhaul", status: "Planning", progress: 10, due: "Jul 15" },
-        ],
-        team: [
-          { name: "Name", title: "Team Lead", email: "email@company.com", isLead: true },
-          { name: "Name", title: "Senior Full-Stack Engineer", email: "email@company.com" },
-          { name: "Name", title: "Full-Stack Engineer", email: "email@company.com" },
-          { name: "Name", title: "Frontend Engineer", email: "email@company.com" },
-          { name: "Name", title: "Data Integration Engineer", email: "email@company.com" },
-          { name: "Name", title: "Backend Engineer", email: "email@company.com" },
-          { name: "Name", title: "UX/UI Designer", email: "email@company.com" },
-          { name: "Name", title: "QA Engineer", email: "email@company.com" },
-          { name: "Name", title: "Systems Analyst", email: "email@company.com" },
-          { name: "Name", title: "Program Coordinator", email: "email@company.com" },
-        ],
-      },
-    ],
+    children: [{
+      id: "horizon", emoji: "🌅", name: "Horizon", color: "#7C3AED",
+      tagline: "Situational awareness and mission command software",
+      overview: "Horizon is our flagship mission software platform, providing operators with real-time situational awareness, data fusion, and command-and-control capabilities. It integrates feeds from hardware sensors, third-party data sources, and allied systems into a unified operational picture.",
+      capabilities: ["Real-time multi-source data fusion","Common operating picture (COP) visualization","Alert & event management workflows","Role-based access control & audit logging","Integration with MDA Buoy & external sensors","Exportable reports & mission debriefs"],
+      limitations: ["Classified environments require separate ATO","Mobile/offline mode still in development","Third-party data integrations on request basis"],
+      projects: [
+        { name: "Horizon v4.0 Release", status: "In Progress", progress: 65, due: "Apr 20" },
+        { name: "Offline Mode (Edge Deploy)", status: "In Progress", progress: 30, due: "Jun 1" },
+        { name: "MDA Buoy Data Connector", status: "Review", progress: 85, due: "Mar 22" },
+        { name: "UX Overhaul", status: "Planning", progress: 10, due: "Jul 15" },
+      ],
+      team: [
+        { name: "Name", title: "Team Lead", email: "email@company.com", isLead: true },
+        { name: "Name", title: "Senior Full-Stack Engineer", email: "email@company.com" },
+        { name: "Name", title: "Full-Stack Engineer", email: "email@company.com" },
+        { name: "Name", title: "Frontend Engineer", email: "email@company.com" },
+        { name: "Name", title: "Data Integration Engineer", email: "email@company.com" },
+        { name: "Name", title: "Backend Engineer", email: "email@company.com" },
+        { name: "Name", title: "UX/UI Designer", email: "email@company.com" },
+        { name: "Name", title: "QA Engineer", email: "email@company.com" },
+        { name: "Name", title: "Systems Analyst", email: "email@company.com" },
+        { name: "Name", title: "Program Coordinator", email: "email@company.com" },
+      ],
+    }],
   },
   {
-    id: "services",
-    emoji: "🤝",
-    name: "Services",
-    color: "#059669",
+    id: "services", emoji: "🤝", name: "Services", color: "#059669",
     tagline: "Delivering mission support and professional services",
     overview: "The Services department delivers technical and mission-support services to our government and enterprise customers. We translate our hardware and software capabilities into operational programs, providing training, integration, fielding, and advisory services.",
-    capabilities: [
-      "Program management & delivery",
-      "System integration & fielding",
-      "Customer training & technical enablement",
-      "Operations & maintenance support",
-      "Mission advisory & concept development",
-      "Government contract management",
-    ],
-    limitations: [
-      "Delivery timelines subject to contract vehicle constraints",
-      "On-site support requires customer-side access approvals",
-      "Classified work scoped per individual program",
-    ],
+    capabilities: ["Program management & delivery","System integration & fielding","Customer training & technical enablement","Operations & maintenance support","Mission advisory & concept development","Government contract management"],
+    limitations: ["Delivery timelines subject to contract vehicle constraints","On-site support requires customer-side access approvals","Classified work scoped per individual program"],
     projects: [
       { name: "Q2 Delivery Milestone Reviews", status: "In Progress", progress: 58, due: "Mar 31" },
       { name: "Customer Onboarding Pack", status: "Review", progress: 80, due: "Mar 18" },
@@ -220,25 +146,11 @@ const structure = [
     ],
     children: [
       {
-        id: "harbinger",
-        emoji: "⚡",
-        name: "Harbinger",
-        color: "#DC2626",
+        id: "harbinger", emoji: "⚡", name: "Harbinger", color: "#DC2626",
         tagline: "Early warning and detection program support",
         overview: "Harbinger is our early warning and threat detection program. This team delivers fielded solutions and advisory services focused on detecting, characterizing, and reporting on emerging threats across maritime, airspace, and cyber domains.",
-        capabilities: [
-          "Threat detection system deployment",
-          "Sensor fusion & anomaly analysis",
-          "Operator training & TTPs development",
-          "Rapid fielding & integration support",
-          "Classified program delivery",
-          "Interoperability with allied systems",
-        ],
-        limitations: [
-          "Operations governed by program-specific security protocols",
-          "Hardware supply dependent on MDA Buoy team",
-          "Software updates follow Horizon release schedule",
-        ],
+        capabilities: ["Threat detection system deployment","Sensor fusion & anomaly analysis","Operator training & TTPs development","Rapid fielding & integration support","Classified program delivery","Interoperability with allied systems"],
+        limitations: ["Operations governed by program-specific security protocols","Hardware supply dependent on MDA Buoy team","Software updates follow Horizon release schedule"],
         projects: [
           { name: "Phase 2 Deployment", status: "In Progress", progress: 72, due: "Apr 10" },
           { name: "TTP Documentation Update", status: "Review", progress: 90, due: "Mar 20" },
@@ -259,25 +171,11 @@ const structure = [
         ],
       },
       {
-        id: "dia",
-        emoji: "🧠",
-        name: "DIA",
-        color: "#0891B2",
-        tagline: "Defense Intellegence Agency",
-        overview: "DIA (Defense Intellegence Agency) delivers advanced data analytics, machine learning, and intelligence analysis services. We turn raw sensor and operational data into actionable intelligence products for government and defense customers.",
-        capabilities: [
-          "Advanced data analytics & visualization",
-          "Machine learning model development",
-          "Intelligence product generation",
-          "Custom reporting & dashboard delivery",
-          "Data pipeline design & implementation",
-          "Classified data handling & processing",
-        ],
-        limitations: [
-          "Production ML deployment coordinated with Software",
-          "Data access governed by customer data agreements",
-          "Real-time analytics requires pre-approved infrastructure",
-        ],
+        id: "dia", emoji: "🧠", name: "DIA", color: "#0891B2",
+        tagline: "Defense Intelligence Agency program support",
+        overview: "DIA (Defense Intelligence Agency) delivers advanced data analytics, machine learning, and intelligence analysis services. We turn raw sensor and operational data into actionable intelligence products for government and defense customers.",
+        capabilities: ["Advanced data analytics & visualization","Machine learning model development","Intelligence product generation","Custom reporting & dashboard delivery","Data pipeline design & implementation","Classified data handling & processing"],
+        limitations: ["Production ML deployment coordinated with Software","Data access governed by customer data agreements","Real-time analytics requires pre-approved infrastructure"],
         projects: [
           { name: "Anomaly Detection Model v2", status: "In Progress", progress: 52, due: "Apr 25" },
           { name: "Intel Dashboard — Customer A", status: "In Progress", progress: 75, due: "Mar 28" },
@@ -298,25 +196,11 @@ const structure = [
         ],
       },
       {
-        id: "cdao",
-        emoji: "🏛️",
-        name: "CDAO",
-        color: "#7C3AED",
+        id: "cdao", emoji: "🏛️", name: "CDAO", color: "#7C3AED",
         tagline: "Chief Digital & AI Office program support",
         overview: "CDAO (Chief Digital and Artificial Intelligence Office) support delivers advisory, integration, and fielding services aligned to DoD CDAO initiatives. We help customers adopt AI-enabled tools, digital transformation practices, and enterprise data strategies at scale.",
-        capabilities: [
-          "DoD CDAO program alignment & compliance",
-          "AI/ML adoption roadmap development",
-          "Digital transformation advisory",
-          "Enterprise data strategy consulting",
-          "Responsible AI governance frameworks",
-          "Interoperability with JADC2 & enterprise systems",
-        ],
-        limitations: [
-          "Policy compliance timelines set by DoD/CDAO office",
-          "AI ethics & responsible AI reviews add lead time",
-          "Access to classified systems per program authorization",
-        ],
+        capabilities: ["DoD CDAO program alignment & compliance","AI/ML adoption roadmap development","Digital transformation advisory","Enterprise data strategy consulting","Responsible AI governance frameworks","Interoperability with JADC2 & enterprise systems"],
+        limitations: ["Policy compliance timelines set by DoD/CDAO office","AI ethics & responsible AI reviews add lead time","Access to classified systems per program authorization"],
         projects: [
           { name: "AI Adoption Roadmap — Customer B", status: "In Progress", progress: 60, due: "Apr 30" },
           { name: "Responsible AI Framework", status: "Review", progress: 88, due: "Mar 25" },
@@ -341,21 +225,19 @@ const structure = [
 ];
 
 const statusConfig = {
-  "In Progress": { color: "#2D6BE4", bg: "#EFF4FF" },
+  "In Progress": { color: "#2563EB", bg: "#EFF6FF" },
   "Review":      { color: "#D97706", bg: "#FFFBEB" },
   "Completed":   { color: "#059669", bg: "#ECFDF5" },
   "Planning":    { color: "#7C3AED", bg: "#F5F3FF" },
 };
 
+const F = "'Archivo', sans-serif";
+
 function getAllChannels(str) {
   const list = [];
   str.forEach((dept) => {
     list.push({ ...dept, isParent: true, children: undefined });
-    if (dept.children) {
-      dept.children.forEach((child) => {
-        list.push({ ...child, isParent: false, parentId: dept.id, parentName: dept.name });
-      });
-    }
+    if (dept.children) dept.children.forEach((child) => list.push({ ...child, isParent: false, parentId: dept.id, parentName: dept.name }));
   });
   return list;
 }
@@ -365,41 +247,52 @@ function App() {
   const [activeId, setActiveId] = React.useState("hardware");
   const [activeTab, setActiveTab] = React.useState("overview");
   const [expanded, setExpanded] = React.useState({ hardware: true, software: true, services: true });
-
   const dept = allChannels.find((d) => d.id === activeId);
   const toggleExpand = (id) => setExpanded((prev) => ({ ...prev, [id]: !prev[id] }));
 
   return (
-    <div style={{ fontFamily: "Georgia, serif", display: "flex", height: "100vh", background: "#F7F6F3", color: "#37352F" }}>
+    <div style={{ fontFamily: F, display: "flex", height: "100vh", background: "#FFFFFF", color: "#111827" }}>
 
-      {/* Sidebar */}
-      <div style={{ width: 248, background: "#FBFAF9", borderRight: "1px solid #E8E5E0", display: "flex", flexDirection: "column", padding: "16px 0", flexShrink: 0, overflowY: "auto" }}>
-        <div style={{ padding: "0 16px 16px", borderBottom: "1px solid #E8E5E0", marginBottom: 8 }}>
-          <div style={{ fontSize: 13, fontWeight: 700, color: "#37352F", letterSpacing: "-0.3px" }}>Spear AI</div>
-          <div style={{ fontSize: 11, color: "#9B9A97", marginTop: 2, fontFamily: "sans-serif" }}>Department Channels</div>
+      {/* Dark Sidebar */}
+      <div style={{ width: 260, background: "#111827", display: "flex", flexDirection: "column", padding: "24px 0", flexShrink: 0, overflowY: "auto" }}>
+        <div style={{ padding: "0 20px 22px", borderBottom: "1px solid #1F2937", marginBottom: 14 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+            <svg width="32" height="32" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ flexShrink: 0, borderRadius: 6 }}>
+              <rect width="200" height="200" rx="24" fill="black"/>
+              <path d="M45.6122 173.612H66.0204L35.4082 120.59L69.3878 61.7358H48.9796L15 120.59L45.6122 173.612Z" fill="white"/>
+              <path d="M185 120.59L174.796 102.916L144.183 155.938L76.2241 155.938L86.4282 173.612L154.387 173.612L185 120.59Z" fill="white"/>
+              <path d="M69.3882 26.3877L59.1841 44.0617L120.409 44.0617L154.388 102.916L164.592 85.2421L130.613 26.3878L69.3882 26.3877Z" fill="white"/>
+              <path d="M66.0205 138.264H133.98L144.184 120.59L110.204 61.7358H89.796L55.8164 120.59L66.0205 138.264Z" fill="white"/>
+            </svg>
+            <div>
+              <div style={{ fontSize: 19, fontWeight: 800, color: "#FFFFFF", letterSpacing: "-0.5px", fontFamily: F }}>Spear AI</div>
+              <div style={{ fontSize: 13, color: "#6B7280", marginTop: 2, fontFamily: F, fontWeight: 500 }}>Department Channels</div>
+            </div>
+          </div>
         </div>
+        <div style={{ padding: "0 20px 10px", fontSize: 11, fontWeight: 700, color: "#4B5563", textTransform: "uppercase", letterSpacing: "0.12em", fontFamily: F }}>Departments</div>
 
         {structure.map((d) => (
           <div key={d.id}>
-            <div style={{ display: "flex", alignItems: "center", margin: "1px 8px", borderRadius: 4, background: activeId === d.id ? "#E8E5E0" : "transparent" }}>
-              <button onClick={() => toggleExpand(d.id)} style={{ background: "none", border: "none", cursor: "pointer", padding: "6px 4px 6px 8px", color: "#9B9A97", fontSize: 10, lineHeight: 1 }}>
+            <div style={{ display: "flex", alignItems: "center", margin: "1px 10px", borderRadius: 6, background: activeId === d.id ? "#1F2937" : "transparent" }}>
+              <button onClick={() => toggleExpand(d.id)} style={{ background: "none", border: "none", cursor: "pointer", padding: "9px 4px 9px 10px", color: "#4B5563", fontSize: 9 }}>
                 {expanded[d.id] ? "▾" : "▸"}
               </button>
-              <button onClick={() => { setActiveId(d.id); setActiveTab("overview"); }} style={{ flex: 1, display: "flex", alignItems: "center", gap: 7, padding: "6px 8px 6px 2px", background: "transparent", border: "none", cursor: "pointer", textAlign: "left" }}>
-                <span style={{ fontSize: 14 }}>{d.emoji}</span>
-                <span style={{ fontSize: 13, color: "#37352F", fontFamily: "sans-serif", fontWeight: activeId === d.id ? 700 : 600 }}>{d.name}</span>
+              <button onClick={() => { setActiveId(d.id); setActiveTab("overview"); }} style={{ flex: 1, display: "flex", alignItems: "center", gap: 9, padding: "9px 10px 9px 2px", background: "transparent", border: "none", cursor: "pointer", textAlign: "left" }}>
+                <span style={{ fontSize: 15 }}>{d.emoji}</span>
+                <span style={{ fontSize: 16, color: activeId === d.id ? "#FFFFFF" : "#D1D5DB", fontFamily: F, fontWeight: 700 }}>{d.name}</span>
                 {activeId === d.id && <span style={{ marginLeft: "auto", width: 6, height: 6, borderRadius: "50%", background: d.color, flexShrink: 0 }} />}
               </button>
             </div>
             {expanded[d.id] && d.children && d.children.map((child) => (
               <button key={child.id} onClick={() => { setActiveId(child.id); setActiveTab("overview"); }} style={{
-                display: "flex", alignItems: "center", gap: 7,
-                padding: "5px 12px 5px 36px", width: "calc(100% - 16px)", margin: "1px 8px",
-                background: activeId === child.id ? "#E8E5E0" : "transparent",
-                border: "none", cursor: "pointer", textAlign: "left", borderRadius: 4,
+                display: "flex", alignItems: "center", gap: 8, padding: "7px 10px 7px 42px",
+                width: "calc(100% - 20px)", margin: "1px 10px",
+                background: activeId === child.id ? "#1F2937" : "transparent",
+                border: "none", cursor: "pointer", textAlign: "left", borderRadius: 6,
               }}>
                 <span style={{ fontSize: 13 }}>{child.emoji}</span>
-                <span style={{ fontSize: 12, color: activeId === child.id ? "#37352F" : "#6B6B6B", fontFamily: "sans-serif", fontWeight: activeId === child.id ? 600 : 400 }}>{child.name}</span>
+                <span style={{ fontSize: 15, color: activeId === child.id ? "#FFFFFF" : "#9CA3AF", fontFamily: F, fontWeight: activeId === child.id ? 600 : 400 }}>{child.name}</span>
                 {activeId === child.id && <span style={{ marginLeft: "auto", width: 5, height: 5, borderRadius: "50%", background: child.color, flexShrink: 0 }} />}
               </button>
             ))}
@@ -407,68 +300,71 @@ function App() {
         ))}
       </div>
 
-      {/* Main Content */}
-      <div style={{ flex: 1, overflow: "auto" }}>
-        <div style={{ padding: "40px 60px 0", maxWidth: 860 }}>
+      {/* Main */}
+      <div style={{ flex: 1, overflow: "auto", background: "#FFFFFF" }}>
+        <div style={{ padding: "52px 72px 0", maxWidth: 920 }}>
+
           {dept.parentName && (
-            <div style={{ fontSize: 11, color: "#9B9A97", fontFamily: "sans-serif", marginBottom: 10 }}>
-              <span style={{ cursor: "pointer", textDecoration: "underline" }} onClick={() => { setActiveId(dept.parentId); setActiveTab("overview"); }}>{dept.parentName}</span>
-              <span style={{ margin: "0 5px" }}>›</span>
-              <span style={{ color: "#37352F", fontWeight: 600 }}>{dept.name}</span>
+            <div style={{ fontSize: 12, color: "#9CA3AF", fontFamily: F, fontWeight: 500, marginBottom: 16 }}>
+              <span style={{ cursor: "pointer", color: "#6B7280" }} onClick={() => { setActiveId(dept.parentId); setActiveTab("overview"); }}>{dept.parentName}</span>
+              <span style={{ margin: "0 6px", color: "#D1D5DB" }}>›</span>
+              <span style={{ color: "#111827", fontWeight: 700 }}>{dept.name}</span>
             </div>
           )}
-          <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 8 }}>
-            <div style={{ fontSize: 40 }}>{dept.emoji}</div>
-            <div>
-              <h1 style={{ margin: 0, fontSize: 30, fontWeight: 700, letterSpacing: "-0.5px", color: "#37352F" }}>{dept.name}</h1>
-              <p style={{ margin: 0, fontSize: 14, color: "#9B9A97", fontFamily: "sans-serif", marginTop: 3 }}>{dept.tagline}</p>
+
+          <div style={{ display: "flex", alignItems: "center", gap: 20, marginBottom: 10 }}>
+            <div style={{ fontSize: 46 }}>{dept.emoji}</div>
+            <div style={{ flex: 1 }}>
+              <h1 style={{ margin: 0, fontSize: 36, fontWeight: 800, letterSpacing: "-1px", color: "#111827", fontFamily: F }}>{dept.name}</h1>
+              <p style={{ margin: 0, fontSize: 15, color: "#6B7280", fontFamily: F, fontWeight: 500, marginTop: 5, lineHeight: 1.5 }}>{dept.tagline}</p>
             </div>
-            <div style={{ marginLeft: "auto", padding: "4px 12px", borderRadius: 20, background: dept.color + "18", border: `1px solid ${dept.color}35`, flexShrink: 0 }}>
-              <span style={{ fontSize: 11, fontWeight: 700, color: dept.color, fontFamily: "sans-serif", textTransform: "uppercase", letterSpacing: "0.06em" }}>
+            <div style={{ padding: "5px 14px", borderRadius: 6, background: dept.color + "15", border: `1.5px solid ${dept.color}35`, flexShrink: 0 }}>
+              <span style={{ fontSize: 11, fontWeight: 700, color: dept.color, fontFamily: F, textTransform: "uppercase", letterSpacing: "0.07em" }}>
                 {dept.parentName ? dept.parentName : "Department"}
               </span>
             </div>
           </div>
-          <div style={{ height: 1, background: "#E8E5E0", margin: "20px 0 0" }} />
+
+          <div style={{ height: 1, background: "#E5E7EB", margin: "28px 0 0" }} />
           <div style={{ display: "flex" }}>
             {["overview", "capabilities", "projects", "team"].map((tab) => (
               <button key={tab} onClick={() => setActiveTab(tab)} style={{
-                padding: "10px 18px", border: "none", background: "transparent", cursor: "pointer",
-                fontSize: 13, fontFamily: "sans-serif", textTransform: "capitalize",
-                color: activeTab === tab ? dept.color : "#9B9A97",
-                fontWeight: activeTab === tab ? 600 : 400,
-                borderBottom: `2px solid ${activeTab === tab ? dept.color : "transparent"}`,
+                padding: "13px 22px", border: "none", background: "transparent", cursor: "pointer",
+                fontSize: 13, fontFamily: F, textTransform: "capitalize",
+                color: activeTab === tab ? dept.color : "#6B7280",
+                fontWeight: activeTab === tab ? 700 : 500,
+                borderBottom: `2.5px solid ${activeTab === tab ? dept.color : "transparent"}`,
                 transition: "all 0.15s",
               }}>{tab}</button>
             ))}
           </div>
-          <div style={{ height: 1, background: "#E8E5E0" }} />
+          <div style={{ height: 1, background: "#E5E7EB" }} />
         </div>
 
-        <div style={{ padding: "32px 60px 60px", maxWidth: 860 }}>
+        <div style={{ padding: "44px 72px 72px", maxWidth: 920 }}>
 
           {activeTab === "overview" && (
             <div>
-              <div style={{ background: "white", borderRadius: 8, padding: 24, border: "1px solid #E8E5E0", marginBottom: 20 }}>
-                <div style={{ fontSize: 13, fontWeight: 700, color: "#37352F", fontFamily: "sans-serif", marginBottom: 12 }}>About this {dept.parentName ? "program" : "department"}</div>
-                <p style={{ margin: 0, fontSize: 14, lineHeight: 1.7, color: "#37352F", fontFamily: "sans-serif" }}>{dept.overview}</p>
+              <div style={{ background: "#F9FAFB", borderRadius: 12, padding: 30, border: "1px solid #E5E7EB", marginBottom: 32 }}>
+                <div style={{ fontSize: 11, fontWeight: 700, color: "#9CA3AF", textTransform: "uppercase", letterSpacing: "0.1em", fontFamily: F, marginBottom: 14 }}>About this {dept.parentName ? "program" : "department"}</div>
+                <p style={{ margin: 0, fontSize: 15, lineHeight: 1.85, color: "#374151", fontFamily: F, fontWeight: 400 }}>{dept.overview}</p>
               </div>
-              <div style={{ fontSize: 11, fontWeight: 700, color: "#9B9A97", textTransform: "uppercase", letterSpacing: "0.08em", fontFamily: "sans-serif", marginBottom: 12 }}>Active Projects</div>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+              <div style={{ fontSize: 11, fontWeight: 700, color: "#9CA3AF", textTransform: "uppercase", letterSpacing: "0.1em", fontFamily: F, marginBottom: 18 }}>Active Projects</div>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
                 {dept.projects.map((p) => {
                   const s = statusConfig[p.status];
                   return (
-                    <div key={p.name} style={{ background: "white", borderRadius: 8, padding: 16, border: "1px solid #E8E5E0" }}>
-                      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 10 }}>
-                        <div style={{ fontSize: 13, fontWeight: 600, color: "#37352F", fontFamily: "sans-serif", lineHeight: 1.3 }}>{p.name}</div>
-                        <span style={{ fontSize: 11, padding: "2px 8px", borderRadius: 20, background: s.bg, color: s.color, fontFamily: "sans-serif", fontWeight: 600, flexShrink: 0, marginLeft: 8 }}>{p.status}</span>
+                    <div key={p.name} style={{ background: "#FFFFFF", borderRadius: 12, padding: 22, border: "1px solid #E5E7EB" }}>
+                      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 16 }}>
+                        <div style={{ fontSize: 14, fontWeight: 700, color: "#111827", fontFamily: F, lineHeight: 1.4 }}>{p.name}</div>
+                        <span style={{ fontSize: 11, padding: "3px 10px", borderRadius: 6, background: s.bg, color: s.color, fontFamily: F, fontWeight: 700, flexShrink: 0, marginLeft: 12 }}>{p.status}</span>
                       </div>
-                      <div style={{ height: 4, background: "#F0EEE9", borderRadius: 4, overflow: "hidden" }}>
-                        <div style={{ height: "100%", width: `${p.progress}%`, background: dept.color, borderRadius: 4 }} />
+                      <div style={{ height: 5, background: "#F3F4F6", borderRadius: 99, overflow: "hidden" }}>
+                        <div style={{ height: "100%", width: `${p.progress}%`, background: dept.color, borderRadius: 99 }} />
                       </div>
-                      <div style={{ display: "flex", justifyContent: "space-between", marginTop: 6 }}>
-                        <span style={{ fontSize: 11, color: "#9B9A97", fontFamily: "sans-serif" }}>{p.progress}% complete</span>
-                        <span style={{ fontSize: 11, color: "#9B9A97", fontFamily: "sans-serif" }}>Due {p.due}</span>
+                      <div style={{ display: "flex", justifyContent: "space-between", marginTop: 10 }}>
+                        <span style={{ fontSize: 12, color: "#9CA3AF", fontFamily: F, fontWeight: 500 }}>{p.progress}% complete</span>
+                        <span style={{ fontSize: 12, color: "#9CA3AF", fontFamily: F, fontWeight: 500 }}>Due {p.due}</span>
                       </div>
                     </div>
                   );
@@ -478,32 +374,32 @@ function App() {
           )}
 
           {activeTab === "capabilities" && (
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
-              <div style={{ background: "white", borderRadius: 8, padding: 24, border: "1px solid #E8E5E0" }}>
-                <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 16 }}>
-                  <div style={{ width: 20, height: 20, borderRadius: 4, background: dept.color, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                    <span style={{ fontSize: 11, color: "white" }}>✓</span>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24 }}>
+              <div style={{ background: "#F9FAFB", borderRadius: 12, padding: 30, border: "1px solid #E5E7EB" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 24 }}>
+                  <div style={{ width: 24, height: 24, borderRadius: 6, background: dept.color, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                    <span style={{ fontSize: 12, color: "white", fontWeight: 800 }}>✓</span>
                   </div>
-                  <span style={{ fontSize: 13, fontWeight: 700, fontFamily: "sans-serif", color: "#37352F" }}>What we can do</span>
+                  <span style={{ fontSize: 14, fontWeight: 800, fontFamily: F, color: "#111827" }}>What we can do</span>
                 </div>
                 {dept.capabilities.map((c) => (
-                  <div key={c} style={{ display: "flex", gap: 10, marginBottom: 12, alignItems: "flex-start" }}>
-                    <div style={{ width: 6, height: 6, borderRadius: "50%", background: dept.color, marginTop: 6, flexShrink: 0 }} />
-                    <span style={{ fontSize: 13, color: "#37352F", fontFamily: "sans-serif", lineHeight: 1.5 }}>{c}</span>
+                  <div key={c} style={{ display: "flex", gap: 12, marginBottom: 16, alignItems: "flex-start" }}>
+                    <div style={{ width: 7, height: 7, borderRadius: "50%", background: dept.color, marginTop: 8, flexShrink: 0 }} />
+                    <span style={{ fontSize: 14, color: "#374151", fontFamily: F, lineHeight: 1.65, fontWeight: 400 }}>{c}</span>
                   </div>
                 ))}
               </div>
-              <div style={{ background: "white", borderRadius: 8, padding: 24, border: "1px solid #E8E5E0" }}>
-                <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 16 }}>
-                  <div style={{ width: 20, height: 20, borderRadius: 4, background: "#F1F0EE", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                    <span style={{ fontSize: 11, color: "#9B9A97" }}>—</span>
+              <div style={{ background: "#F9FAFB", borderRadius: 12, padding: 30, border: "1px solid #E5E7EB" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 24 }}>
+                  <div style={{ width: 24, height: 24, borderRadius: 6, background: "#E5E7EB", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                    <span style={{ fontSize: 13, color: "#9CA3AF", fontWeight: 800 }}>—</span>
                   </div>
-                  <span style={{ fontSize: 13, fontWeight: 700, fontFamily: "sans-serif", color: "#37352F" }}>Limitations & scope</span>
+                  <span style={{ fontSize: 14, fontWeight: 800, fontFamily: F, color: "#111827" }}>Limitations & scope</span>
                 </div>
                 {dept.limitations.map((l) => (
-                  <div key={l} style={{ display: "flex", gap: 10, marginBottom: 12, alignItems: "flex-start" }}>
-                    <div style={{ width: 6, height: 6, borderRadius: "50%", background: "#D0CECC", marginTop: 6, flexShrink: 0 }} />
-                    <span style={{ fontSize: 13, color: "#6B6B6B", fontFamily: "sans-serif", lineHeight: 1.5 }}>{l}</span>
+                  <div key={l} style={{ display: "flex", gap: 12, marginBottom: 16, alignItems: "flex-start" }}>
+                    <div style={{ width: 7, height: 7, borderRadius: "50%", background: "#D1D5DB", marginTop: 8, flexShrink: 0 }} />
+                    <span style={{ fontSize: 14, color: "#6B7280", fontFamily: F, lineHeight: 1.65, fontWeight: 400 }}>{l}</span>
                   </div>
                 ))}
               </div>
@@ -511,29 +407,29 @@ function App() {
           )}
 
           {activeTab === "projects" && (
-            <div style={{ background: "white", borderRadius: 8, border: "1px solid #E8E5E0", overflow: "hidden" }}>
-              <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr 80px", padding: "10px 20px", borderBottom: "1px solid #E8E5E0", background: "#FBFAF9" }}>
+            <div style={{ background: "#FFFFFF", borderRadius: 12, border: "1px solid #E5E7EB", overflow: "hidden" }}>
+              <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr 80px", padding: "13px 26px", borderBottom: "1px solid #E5E7EB", background: "#F9FAFB" }}>
                 {["Project", "Status", "Progress", "Due"].map((h) => (
-                  <div key={h} style={{ fontSize: 11, fontWeight: 700, color: "#9B9A97", textTransform: "uppercase", letterSpacing: "0.06em", fontFamily: "sans-serif" }}>{h}</div>
+                  <div key={h} style={{ fontSize: 11, fontWeight: 700, color: "#9CA3AF", textTransform: "uppercase", letterSpacing: "0.08em", fontFamily: F }}>{h}</div>
                 ))}
               </div>
               {dept.projects.map((p, i) => {
                 const s = statusConfig[p.status];
                 return (
                   <div key={p.name}
-                    style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr 80px", padding: "14px 20px", alignItems: "center", borderBottom: i < dept.projects.length - 1 ? "1px solid #F0EEE9" : "none" }}
-                    onMouseEnter={(e) => e.currentTarget.style.background = "#FAFAF8"}
+                    style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr 80px", padding: "18px 26px", alignItems: "center", borderBottom: i < dept.projects.length - 1 ? "1px solid #F3F4F6" : "none", transition: "background 0.1s" }}
+                    onMouseEnter={(e) => e.currentTarget.style.background = "#F9FAFB"}
                     onMouseLeave={(e) => e.currentTarget.style.background = "transparent"}
                   >
-                    <div style={{ fontSize: 13, fontWeight: 500, color: "#37352F", fontFamily: "sans-serif" }}>{p.name}</div>
-                    <div><span style={{ fontSize: 11, padding: "3px 10px", borderRadius: 20, background: s.bg, color: s.color, fontFamily: "sans-serif", fontWeight: 600 }}>{p.status}</span></div>
+                    <div style={{ fontSize: 14, fontWeight: 600, color: "#111827", fontFamily: F }}>{p.name}</div>
+                    <div><span style={{ fontSize: 11, padding: "4px 10px", borderRadius: 6, background: s.bg, color: s.color, fontFamily: F, fontWeight: 700 }}>{p.status}</span></div>
                     <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                      <div style={{ flex: 1, height: 4, background: "#F0EEE9", borderRadius: 4, maxWidth: 100 }}>
-                        <div style={{ height: "100%", width: `${p.progress}%`, background: dept.color, borderRadius: 4 }} />
+                      <div style={{ flex: 1, height: 5, background: "#F3F4F6", borderRadius: 99, maxWidth: 100 }}>
+                        <div style={{ height: "100%", width: `${p.progress}%`, background: dept.color, borderRadius: 99 }} />
                       </div>
-                      <span style={{ fontSize: 11, color: "#9B9A97", fontFamily: "sans-serif", minWidth: 28 }}>{p.progress}%</span>
+                      <span style={{ fontSize: 12, color: "#9CA3AF", fontFamily: F, fontWeight: 500, minWidth: 30 }}>{p.progress}%</span>
                     </div>
-                    <div style={{ fontSize: 12, color: "#9B9A97", fontFamily: "sans-serif" }}>{p.due}</div>
+                    <div style={{ fontSize: 13, color: "#6B7280", fontFamily: F, fontWeight: 500 }}>{p.due}</div>
                   </div>
                 );
               })}
@@ -541,39 +437,37 @@ function App() {
           )}
 
           {activeTab === "team" && (
-            <div style={{ background: "white", borderRadius: 8, border: "1px solid #E8E5E0", overflow: "hidden" }}>
-              <div style={{ display: "grid", gridTemplateColumns: "2fr 2fr 2fr", padding: "10px 20px", borderBottom: "1px solid #E8E5E0", background: "#FBFAF9" }}>
+            <div style={{ background: "#FFFFFF", borderRadius: 12, border: "1px solid #E5E7EB", overflow: "hidden" }}>
+              <div style={{ display: "grid", gridTemplateColumns: "2fr 2fr 2fr", padding: "13px 26px", borderBottom: "1px solid #E5E7EB", background: "#F9FAFB" }}>
                 {["Name", "Title", "Email"].map((h) => (
-                  <div key={h} style={{ fontSize: 11, fontWeight: 700, color: "#9B9A97", textTransform: "uppercase", letterSpacing: "0.06em", fontFamily: "sans-serif" }}>{h}</div>
+                  <div key={h} style={{ fontSize: 11, fontWeight: 700, color: "#9CA3AF", textTransform: "uppercase", letterSpacing: "0.08em", fontFamily: F }}>{h}</div>
                 ))}
               </div>
               {dept.team && dept.team.map((m, i) => (
                 <div key={i} style={{
-                  display: "grid", gridTemplateColumns: "2fr 2fr 2fr", padding: "13px 20px", alignItems: "center",
-                  borderBottom: i < dept.team.length - 1 ? "1px solid #F0EEE9" : "none",
-                  background: m.isLead ? dept.color + "08" : "transparent",
+                  display: "grid", gridTemplateColumns: "2fr 2fr 2fr", padding: "16px 26px", alignItems: "center",
+                  borderBottom: i < dept.team.length - 1 ? "1px solid #F3F4F6" : "none",
+                  background: m.isLead ? dept.color + "08" : "transparent", transition: "background 0.1s",
                 }}
-                  onMouseEnter={(e) => e.currentTarget.style.background = m.isLead ? dept.color + "12" : "#FAFAF8"}
+                  onMouseEnter={(e) => e.currentTarget.style.background = m.isLead ? dept.color + "12" : "#F9FAFB"}
                   onMouseLeave={(e) => e.currentTarget.style.background = m.isLead ? dept.color + "08" : "transparent"}
                 >
-                  <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                    <div style={{ width: 28, height: 28, borderRadius: "50%", background: m.isLead ? dept.color : "#E8E5E0", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                      <span style={{ fontSize: 11, fontWeight: 700, color: m.isLead ? "white" : "#9B9A97", fontFamily: "sans-serif" }}>
-                        {m.name === "Name" ? "?" : m.name.split(" ").map(n => n[0]).join("").slice(0,2)}
+                  <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                    <div style={{ width: 32, height: 32, borderRadius: "50%", background: m.isLead ? dept.color : "#E5E7EB", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                      <span style={{ fontSize: 11, fontWeight: 800, color: m.isLead ? "white" : "#9CA3AF", fontFamily: F }}>
+                        {m.name === "Name" ? "?" : m.name.split(" ").map(n => n[0]).join("").slice(0, 2)}
                       </span>
                     </div>
                     <div>
-                      <span style={{ fontSize: 13, fontWeight: m.isLead ? 700 : 500, color: "#37352F", fontFamily: "sans-serif" }}>{m.name}</span>
-                      {m.isLead && <span style={{ marginLeft: 6, fontSize: 10, padding: "1px 6px", borderRadius: 10, background: dept.color, color: "white", fontFamily: "sans-serif", fontWeight: 600 }}>Lead</span>}
+                      <span style={{ fontSize: 14, fontWeight: m.isLead ? 800 : 600, color: "#111827", fontFamily: F }}>{m.name}</span>
+                      {m.isLead && <span style={{ marginLeft: 7, fontSize: 10, padding: "2px 7px", borderRadius: 5, background: dept.color, color: "white", fontFamily: F, fontWeight: 700 }}>Lead</span>}
                     </div>
                   </div>
-                  <div style={{ fontSize: 13, color: "#6B6B6B", fontFamily: "sans-serif" }}>{m.title}</div>
-                  <div>
-                    <a href={`mailto:${m.email}`} style={{ fontSize: 13, color: dept.color, fontFamily: "sans-serif", textDecoration: "none" }}
-                      onMouseEnter={(e) => e.target.style.textDecoration = "underline"}
-                      onMouseLeave={(e) => e.target.style.textDecoration = "none"}
-                    >{m.email}</a>
-                  </div>
+                  <div style={{ fontSize: 13, color: "#6B7280", fontFamily: F }}>{m.title}</div>
+                  <a href={`mailto:${m.email}`} style={{ fontSize: 13, color: dept.color, fontFamily: F, textDecoration: "none", fontWeight: 500 }}
+                    onMouseEnter={(e) => e.target.style.textDecoration = "underline"}
+                    onMouseLeave={(e) => e.target.style.textDecoration = "none"}
+                  >{m.email}</a>
                 </div>
               ))}
             </div>
