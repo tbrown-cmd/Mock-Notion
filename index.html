@@ -22,7 +22,7 @@
 
 const structure = [
   {
-    id: "hardware", emoji: "🔩", name: "Hardware", color: "#B45309",
+    id: "hardware", name: "Hardware", color: "#B45309",
     tagline: "Engineering physical systems and sensor platforms",
     overview: "The Hardware department designs, builds, and maintains all physical systems and sensor platforms. From prototyping through production, we ensure our hardware solutions meet rigorous performance, reliability, and environmental standards.",
     capabilities: ["Hardware design & prototyping","Embedded systems & firmware integration","Environmental & stress testing","Component sourcing & supply chain management","Field deployment & maintenance support","Hardware lifecycle management"],
@@ -46,7 +46,7 @@ const structure = [
       { name: "Name", title: "Field Support Technician", email: "email@company.com" },
     ],
     children: [{
-      id: "mda-buoy", emoji: "🛟", name: "MDA Buoy", color: "#0369A1",
+      id: "mda-buoy", name: "MDA Buoy", color: "#0369A1",
       tagline: "Maritime domain awareness sensor platform",
       overview: "MDA Buoy is our autonomous maritime sensor buoy program. This system provides persistent, remote ocean monitoring capabilities for maritime domain awareness, environmental sensing, and threat detection in contested or denied environments.",
       capabilities: ["Autonomous ocean-surface data collection","Multi-spectral sensor payload integration","Satellite & RF communications relay","Low-power long-duration deployment (90+ days)","Encrypted telemetry & remote tasking","Modular payload bay for mission adaptability"],
@@ -72,7 +72,7 @@ const structure = [
     }],
   },
   {
-    id: "software", emoji: "💻", name: "Software", color: "#2D6BE4",
+    id: "software", name: "Software", color: "#2D6BE4",
     tagline: "Building intelligent software platforms and tools",
     overview: "The Software department develops and maintains all software systems across the organization, from backend data infrastructure and APIs to front-end applications and mission tools. We follow agile practices and own the full development lifecycle.",
     capabilities: ["Full-stack application development","Cloud-native architecture (AWS/Azure)","API design, integration & management","DevSecOps & CI/CD pipeline ownership","Data pipeline & storage systems","Cybersecurity & system hardening"],
@@ -95,7 +95,7 @@ const structure = [
       { name: "Name", title: "QA Engineer", email: "email@company.com" },
     ],
     children: [{
-      id: "horizon", emoji: "🌅", name: "Horizon", color: "#7C3AED",
+      id: "horizon", name: "Horizon", color: "#7C3AED",
       tagline: "Situational awareness and mission command software",
       overview: "Horizon is our flagship mission software platform, providing operators with real-time situational awareness, data fusion, and command-and-control capabilities. It integrates feeds from hardware sensors, third-party data sources, and allied systems into a unified operational picture.",
       capabilities: ["Real-time multi-source data fusion","Common operating picture (COP) visualization","Alert & event management workflows","Role-based access control & audit logging","Integration with MDA Buoy & external sensors","Exportable reports & mission debriefs"],
@@ -121,7 +121,7 @@ const structure = [
     }],
   },
   {
-    id: "services", emoji: "🤝", name: "Services", color: "#059669",
+    id: "services", name: "Services", color: "#059669",
     tagline: "Delivering mission support and professional services",
     overview: "The Services department delivers technical and mission-support services to our government and enterprise customers. We translate our hardware and software capabilities into operational programs, providing training, integration, fielding, and advisory services.",
     capabilities: ["Program management & delivery","System integration & fielding","Customer training & technical enablement","Operations & maintenance support","Mission advisory & concept development","Government contract management"],
@@ -146,7 +146,7 @@ const structure = [
     ],
     children: [
       {
-        id: "harbinger", emoji: "⚡", name: "Harbinger", color: "#DC2626",
+        id: "harbinger", name: "Harbinger", color: "#DC2626",
         tagline: "Early warning and detection program support",
         overview: "Harbinger is our early warning and threat detection program. This team delivers fielded solutions and advisory services focused on detecting, characterizing, and reporting on emerging threats across maritime, airspace, and cyber domains.",
         capabilities: ["Threat detection system deployment","Sensor fusion & anomaly analysis","Operator training & TTPs development","Rapid fielding & integration support","Classified program delivery","Interoperability with allied systems"],
@@ -171,7 +171,7 @@ const structure = [
         ],
       },
       {
-        id: "dia", emoji: "🧠", name: "DIA", color: "#0891B2",
+        id: "dia", name: "DIA", color: "#0891B2",
         tagline: "Defense Intelligence Agency program support",
         overview: "DIA (Defense Intelligence Agency) delivers advanced data analytics, machine learning, and intelligence analysis services. We turn raw sensor and operational data into actionable intelligence products for government and defense customers.",
         capabilities: ["Advanced data analytics & visualization","Machine learning model development","Intelligence product generation","Custom reporting & dashboard delivery","Data pipeline design & implementation","Classified data handling & processing"],
@@ -196,7 +196,7 @@ const structure = [
         ],
       },
       {
-        id: "cdao", emoji: "🏛️", name: "CDAO", color: "#7C3AED",
+        id: "cdao", name: "CDAO", color: "#7C3AED",
         tagline: "Chief Digital & AI Office program support",
         overview: "CDAO (Chief Digital and Artificial Intelligence Office) support delivers advisory, integration, and fielding services aligned to DoD CDAO initiatives. We help customers adopt AI-enabled tools, digital transformation practices, and enterprise data strategies at scale.",
         capabilities: ["DoD CDAO program alignment & compliance","AI/ML adoption roadmap development","Digital transformation advisory","Enterprise data strategy consulting","Responsible AI governance frameworks","Interoperability with JADC2 & enterprise systems"],
@@ -279,7 +279,6 @@ function App() {
                 {expanded[d.id] ? "▾" : "▸"}
               </button>
               <button onClick={() => { setActiveId(d.id); setActiveTab("overview"); }} style={{ flex: 1, display: "flex", alignItems: "center", gap: 9, padding: "9px 10px 9px 2px", background: "transparent", border: "none", cursor: "pointer", textAlign: "left" }}>
-                <span style={{ fontSize: 15 }}>{d.emoji}</span>
                 <span style={{ fontSize: 16, color: activeId === d.id ? "#FFFFFF" : "#D1D5DB", fontFamily: F, fontWeight: 700 }}>{d.name}</span>
                 {activeId === d.id && <span style={{ marginLeft: "auto", width: 6, height: 6, borderRadius: "50%", background: d.color, flexShrink: 0 }} />}
               </button>
@@ -291,7 +290,6 @@ function App() {
                 background: activeId === child.id ? "#1F2937" : "transparent",
                 border: "none", cursor: "pointer", textAlign: "left", borderRadius: 6,
               }}>
-                <span style={{ fontSize: 13 }}>{child.emoji}</span>
                 <span style={{ fontSize: 15, color: activeId === child.id ? "#FFFFFF" : "#9CA3AF", fontFamily: F, fontWeight: activeId === child.id ? 600 : 400 }}>{child.name}</span>
                 {activeId === child.id && <span style={{ marginLeft: "auto", width: 5, height: 5, borderRadius: "50%", background: child.color, flexShrink: 0 }} />}
               </button>
@@ -313,7 +311,6 @@ function App() {
           )}
 
           <div style={{ display: "flex", alignItems: "center", gap: 20, marginBottom: 10 }}>
-            <div style={{ fontSize: 46 }}>{dept.emoji}</div>
             <div style={{ flex: 1 }}>
               <h1 style={{ margin: 0, fontSize: 36, fontWeight: 800, letterSpacing: "-1px", color: "#111827", fontFamily: F }}>{dept.name}</h1>
               <p style={{ margin: 0, fontSize: 15, color: "#6B7280", fontFamily: F, fontWeight: 500, marginTop: 5, lineHeight: 1.5 }}>{dept.tagline}</p>
