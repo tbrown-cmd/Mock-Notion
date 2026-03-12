@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Company Channels</title>
+  <title>Spear AI — Internal Portal</title>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
@@ -20,6 +20,53 @@
   <div id="root"></div>
   <script type="text/babel">
 
+const F = "'Archivo', sans-serif";
+
+// ─── PARTNERSHIPS DATA ────────────────────────────────────────────────
+const partnerships = [
+  {
+    org: "DIU (Defense Innovation Unit)",
+    spearContact: "Name",
+    type: "Contract / CRADA",
+    status: "Active",
+    description: "Ongoing engagement supporting rapid technology prototyping and transition under DIU contract. Relationship spans multiple program offices.",
+    notes: "Strong relationship with X program office. Explore adjacent sections for expanded scope.",
+  },
+  {
+    org: "MARSOC",
+    spearContact: "Name",
+    type: "Program Support",
+    status: "Active",
+    description: "Supporting Marine Special Operations Command on sensor integration and mission software capability development.",
+    notes: "Deep operational ties. Potential to expand to other SOF organizations using MARSOC as a reference.",
+  },
+  {
+    org: "CDAO Office",
+    spearContact: "Name",
+    type: "Advisory / Program Alignment",
+    status: "Active",
+    description: "Aligned to DoD Chief Digital and AI Office initiatives. Supporting AI adoption roadmaps and responsible AI frameworks.",
+    notes: "Use CDAO relationship as a gateway to pitch adjacent DoD components on AI transformation work.",
+  },
+  {
+    org: "DIA (Defense Intelligence Agency)",
+    spearContact: "Name",
+    type: "Intelligence Program Support",
+    status: "Active",
+    description: "Providing data analytics and intelligence product services under DIA program. Focused on ML-driven analysis of sensor data.",
+    notes: "Explore cross-referencing with other IC elements who have similar data challenges.",
+  },
+  {
+    org: "Partner Organization",
+    spearContact: "Name",
+    type: "TBD",
+    status: "Pending",
+    description: "Add description of this partnership and its scope.",
+    notes: "Add notes on how this relationship can be leveraged.",
+  },
+];
+
+// ─── DEPARTMENT / PROGRAM DATA ────────────────────────────────────────
 const structure = [
   {
     id: "hardware", name: "Hardware", color: "#B45309",
@@ -28,46 +75,93 @@ const structure = [
     capabilities: ["Hardware design & prototyping","Embedded systems & firmware integration","Environmental & stress testing","Component sourcing & supply chain management","Field deployment & maintenance support","Hardware lifecycle management"],
     limitations: ["Software integration coordinated with Software department","Large-scale manufacturing requires third-party partners","Lead times of 6–12 weeks for custom components"],
     projects: [
-      { name: "Gen 2 Sensor Array Prototype", status: "In Progress", progress: 55, due: "May 10" },
-      { name: "Power Systems Optimization", status: "Review", progress: 88, due: "Mar 28" },
-      { name: "Enclosure Ruggedization", status: "Completed", progress: 100, due: "Mar 1" },
-      { name: "Field Kit Standardization", status: "Planning", progress: 12, due: "Jun 30" },
+      {
+        name: "Gen 2 Sensor Array Prototype", status: "In Progress", due: "May 10",
+        description: "Developing the next-generation sensor array with expanded spectral coverage and reduced power draw. Targeting a 40% improvement in detection range over Gen 1.",
+        subprojects: [
+          { name: "RF Sensor Module Redesign", status: "In Progress", description: "Redesigning the RF front-end to support wider frequency bands and lower noise floor." },
+          { name: "Mechanical Integration Testing", status: "Planning", description: "Validating fit, form, and function of the new array housing in simulated field conditions." },
+        ],
+      },
+      {
+        name: "Power Systems Optimization", status: "Review", due: "Mar 28",
+        description: "Audit and redesign of onboard power management to extend deployment duration. Evaluating solar supplementation and advanced battery chemistries.",
+        subprojects: [
+          { name: "Solar Harvesting Assessment", status: "Review", description: "Evaluating mono vs. flexible panel options for buoy top-deck integration." },
+          { name: "Battery Chemistry Comparison", status: "Completed", description: "Benchmarked LFP vs. NMC chemistries for thermal stability in maritime environments." },
+        ],
+      },
+      {
+        name: "Enclosure Ruggedization", status: "Completed", due: "Mar 1",
+        description: "Upgraded enclosure materials and sealing to meet MIL-STD-810 standards for shock, vibration, and salt-fog resistance. Validated through third-party testing.",
+        subprojects: [],
+      },
+      {
+        name: "Field Kit Standardization", status: "Planning", due: "Jun 30",
+        description: "Standardizing the field deployment kit across all hardware platforms to reduce operator training time and improve logistics support.",
+        subprojects: [
+          { name: "Kit BOM Consolidation", status: "Planning", description: "Identifying common components across platforms to reduce SKU count and simplify supply chain." },
+          { name: "Field Manual Update", status: "Planning", description: "Rewriting deployment and maintenance guides to reflect standardized kit." },
+        ],
+      },
     ],
     team: [
-      { name: "Name", title: "Team Lead", email: "email@company.com", isLead: true },
-      { name: "Name", title: "Senior Hardware Engineer", email: "email@company.com" },
-      { name: "Name", title: "Hardware Engineer", email: "email@company.com" },
-      { name: "Name", title: "Hardware Engineer", email: "email@company.com" },
-      { name: "Name", title: "Embedded Systems Engineer", email: "email@company.com" },
-      { name: "Name", title: "Embedded Systems Engineer", email: "email@company.com" },
-      { name: "Name", title: "Test & Validation Engineer", email: "email@company.com" },
-      { name: "Name", title: "Mechanical Engineer", email: "email@company.com" },
-      { name: "Name", title: "Supply Chain Specialist", email: "email@company.com" },
-      { name: "Name", title: "Field Support Technician", email: "email@company.com" },
+      { name: "Name", title: "Team Lead", email: "email@spearai.com", isLead: true },
+      { name: "Name", title: "Senior Hardware Engineer", email: "email@spearai.com" },
+      { name: "Name", title: "Hardware Engineer", email: "email@spearai.com" },
+      { name: "Name", title: "Embedded Systems Engineer", email: "email@spearai.com" },
+      { name: "Name", title: "Test & Validation Engineer", email: "email@spearai.com" },
+      { name: "Name", title: "Mechanical Engineer", email: "email@spearai.com" },
+      { name: "Name", title: "Supply Chain Specialist", email: "email@spearai.com" },
     ],
     children: [{
       id: "mda-buoy", name: "MDA Buoy", color: "#0369A1",
       tagline: "Maritime domain awareness sensor platform",
-      overview: "MDA Buoy is our autonomous maritime sensor buoy program. This system provides persistent, remote ocean monitoring capabilities for maritime domain awareness, environmental sensing, and threat detection in contested or denied environments.",
+      overview: "MDA Buoy is our autonomous maritime sensor buoy program providing persistent, remote ocean monitoring for maritime domain awareness, environmental sensing, and threat detection in contested or denied environments.",
       capabilities: ["Autonomous ocean-surface data collection","Multi-spectral sensor payload integration","Satellite & RF communications relay","Low-power long-duration deployment (90+ days)","Encrypted telemetry & remote tasking","Modular payload bay for mission adaptability"],
       limitations: ["Deployment logistics require maritime coordination","Real-time comms dependent on SATCOM availability","Payload customization lead time: 4–6 weeks"],
       projects: [
-        { name: "Buoy v2.1 Sea Trial", status: "In Progress", progress: 62, due: "Apr 15" },
-        { name: "Solar Panel Efficiency Upgrade", status: "In Progress", progress: 44, due: "May 1" },
-        { name: "Acoustic Sensor Integration", status: "Planning", progress: 8, due: "Jul 1" },
-        { name: "Prototype Field Validation", status: "Completed", progress: 100, due: "Feb 20" },
+        {
+          name: "Buoy v2.1 Sea Trial", status: "In Progress", due: "Apr 15",
+          description: "Conducting open-water validation of the v2.1 platform. Assessing sensor performance, comms reliability, and hull endurance under real sea-state conditions.",
+          subprojects: [
+            { name: "SATCOM Link Validation", status: "In Progress", description: "Testing Iridium and Starlink fallback comms under varying sea states and antenna orientations." },
+            { name: "Sensor Calibration at Sea", status: "In Progress", description: "Running multi-day calibration sequences to validate sensor drift and accuracy against reference buoys." },
+          ],
+        },
+        {
+          name: "Solar Panel Efficiency Upgrade", status: "In Progress", due: "May 1",
+          description: "Evaluating high-efficiency flexible solar panels to supplement battery capacity and extend autonomous deployment from 90 to 120+ days without retrieval.",
+          subprojects: [
+            { name: "Panel Vendor Evaluation", status: "Completed", description: "Down-selected to two vendors based on efficiency, salt tolerance, and form factor." },
+            { name: "Deck Integration Design", status: "In Progress", description: "Designing panel mounting system that does not interfere with sensor FOVs or RF patterns." },
+          ],
+        },
+        {
+          name: "Acoustic Sensor Integration", status: "Planning", due: "Jul 1",
+          description: "Adding an underwater acoustic sensor module to detect sub-surface threats and expand the buoy's domain awareness below the waterline.",
+          subprojects: [
+            { name: "Hydrophone Selection", status: "Planning", description: "Evaluating COTS hydrophone options against size, power, and sensitivity requirements." },
+          ],
+        },
+        {
+          name: "OTH Data Backhaul Architecture", status: "Planning", due: "Aug 1",
+          description: "Designing a resilient over-the-horizon data backhaul solution for buoys operating in SATCOM-denied or degraded environments. Evaluating HF radio, mesh relay, and LEO alternatives.",
+          subprojects: [
+            { name: "HF Radio Feasibility Study", status: "Planning", description: "Assessing HF skywave propagation as a low-power, long-range backhaul option for contested environments." },
+            { name: "Mesh Relay Network Design", status: "Planning", description: "Modeling a multi-buoy mesh relay architecture to extend data reach without direct SATCOM." },
+          ],
+        },
       ],
       team: [
-        { name: "Name", title: "Team Lead", email: "email@company.com", isLead: true },
-        { name: "Name", title: "Senior Systems Engineer", email: "email@company.com" },
-        { name: "Name", title: "Maritime Systems Engineer", email: "email@company.com" },
-        { name: "Name", title: "Sensor Integration Engineer", email: "email@company.com" },
-        { name: "Name", title: "Firmware Engineer", email: "email@company.com" },
-        { name: "Name", title: "Communications Engineer", email: "email@company.com" },
-        { name: "Name", title: "Power Systems Engineer", email: "email@company.com" },
-        { name: "Name", title: "Test Engineer", email: "email@company.com" },
-        { name: "Name", title: "Field Operations Specialist", email: "email@company.com" },
-        { name: "Name", title: "Program Coordinator", email: "email@company.com" },
+        { name: "Name", title: "Team Lead", email: "email@spearai.com", isLead: true },
+        { name: "Name", title: "Senior Systems Engineer", email: "email@spearai.com" },
+        { name: "Name", title: "Maritime Systems Engineer", email: "email@spearai.com" },
+        { name: "Name", title: "Sensor Integration Engineer", email: "email@spearai.com" },
+        { name: "Name", title: "Firmware Engineer", email: "email@spearai.com" },
+        { name: "Name", title: "Communications Engineer", email: "email@spearai.com" },
+        { name: "Name", title: "Power Systems Engineer", email: "email@spearai.com" },
+        { name: "Name", title: "Field Operations Specialist", email: "email@spearai.com" },
       ],
     }],
   },
@@ -78,45 +172,90 @@ const structure = [
     capabilities: ["Full-stack application development","Cloud-native architecture (AWS/Azure)","API design, integration & management","DevSecOps & CI/CD pipeline ownership","Data pipeline & storage systems","Cybersecurity & system hardening"],
     limitations: ["Hardware firmware owned jointly with Hardware team","UI/UX design input required from stakeholders","Government-accredited systems follow ATO timelines"],
     projects: [
-      { name: "Platform Core v3 Rebuild", status: "In Progress", progress: 70, due: "Apr 30" },
-      { name: "SSO & Auth Overhaul", status: "Review", progress: 92, due: "Mar 20" },
-      { name: "Data Ingestion Pipeline", status: "In Progress", progress: 48, due: "May 15" },
-      { name: "Security Audit Remediation", status: "Completed", progress: 100, due: "Mar 5" },
+      {
+        name: "Platform Core v3 Rebuild", status: "In Progress", due: "Apr 30",
+        description: "Full architectural overhaul of the core platform to support multi-tenant deployments, improved API performance, and a modernized front-end framework.",
+        subprojects: [
+          { name: "API Gateway Migration", status: "In Progress", description: "Moving from legacy REST endpoints to a unified API gateway with rate limiting and versioning." },
+          { name: "Frontend Framework Upgrade", status: "In Progress", description: "Migrating UI from legacy stack to React 18 with improved state management." },
+          { name: "Multi-Tenant Architecture", status: "Planning", description: "Designing data isolation and access control patterns to support multiple customer environments on shared infrastructure." },
+        ],
+      },
+      {
+        name: "SSO & Auth Overhaul", status: "Review", due: "Mar 20",
+        description: "Replacing custom auth with enterprise SSO integration (SAML/OIDC). Adds MFA support and aligns with customer identity providers for smoother onboarding.",
+        subprojects: [],
+      },
+      {
+        name: "Data Ingestion Pipeline", status: "In Progress", due: "May 15",
+        description: "Building a scalable, real-time data ingestion pipeline to handle sensor telemetry, third-party data feeds, and internal event streams at scale.",
+        subprojects: [
+          { name: "Stream Processing Layer", status: "In Progress", description: "Implementing Apache Kafka-based stream processing for real-time sensor event ingestion." },
+          { name: "Schema Registry & Validation", status: "Planning", description: "Establishing a schema registry to enforce data contracts across all ingestion sources." },
+        ],
+      },
+      {
+        name: "Security Audit Remediation", status: "Completed", due: "Mar 5",
+        description: "Addressed all critical and high findings from Q1 security audit. Patched dependency vulnerabilities, hardened API endpoints, and improved secrets management.",
+        subprojects: [],
+      },
     ],
     team: [
-      { name: "Name", title: "Team Lead", email: "email@company.com", isLead: true },
-      { name: "Name", title: "Senior Software Engineer", email: "email@company.com" },
-      { name: "Name", title: "Backend Engineer", email: "email@company.com" },
-      { name: "Name", title: "Backend Engineer", email: "email@company.com" },
-      { name: "Name", title: "Frontend Engineer", email: "email@company.com" },
-      { name: "Name", title: "DevSecOps Engineer", email: "email@company.com" },
-      { name: "Name", title: "Cloud Infrastructure Engineer", email: "email@company.com" },
-      { name: "Name", title: "Cybersecurity Engineer", email: "email@company.com" },
-      { name: "Name", title: "QA Engineer", email: "email@company.com" },
+      { name: "Name", title: "Team Lead", email: "email@spearai.com", isLead: true },
+      { name: "Name", title: "Senior Software Engineer", email: "email@spearai.com" },
+      { name: "Name", title: "Backend Engineer", email: "email@spearai.com" },
+      { name: "Name", title: "Frontend Engineer", email: "email@spearai.com" },
+      { name: "Name", title: "DevSecOps Engineer", email: "email@spearai.com" },
+      { name: "Name", title: "Cloud Infrastructure Engineer", email: "email@spearai.com" },
+      { name: "Name", title: "Cybersecurity Engineer", email: "email@spearai.com" },
+      { name: "Name", title: "QA Engineer", email: "email@spearai.com" },
     ],
     children: [{
       id: "horizon", name: "Horizon", color: "#7C3AED",
       tagline: "Situational awareness and mission command software",
-      overview: "Horizon is our flagship mission software platform, providing operators with real-time situational awareness, data fusion, and command-and-control capabilities. It integrates feeds from hardware sensors, third-party data sources, and allied systems into a unified operational picture.",
+      overview: "Horizon is our flagship mission software platform providing operators with real-time situational awareness, data fusion, and command-and-control capabilities. It integrates feeds from hardware sensors, third-party data sources, and allied systems into a unified operational picture.",
       capabilities: ["Real-time multi-source data fusion","Common operating picture (COP) visualization","Alert & event management workflows","Role-based access control & audit logging","Integration with MDA Buoy & external sensors","Exportable reports & mission debriefs"],
-      limitations: ["Classified environments require separate ATO","Mobile/offline mode still in development","Third-party data integrations on request basis"],
+      limitations: ["Classified environments require separate ATO","Mobile/offline (edge) mode still in development","Third-party data integrations on request basis"],
       projects: [
-        { name: "Horizon v4.0 Release", status: "In Progress", progress: 65, due: "Apr 20" },
-        { name: "Offline Mode (Edge Deploy)", status: "In Progress", progress: 30, due: "Jun 1" },
-        { name: "MDA Buoy Data Connector", status: "Review", progress: 85, due: "Mar 22" },
-        { name: "UX Overhaul", status: "Planning", progress: 10, due: "Jul 15" },
+        {
+          name: "Horizon v4.0 Release", status: "In Progress", due: "Apr 20",
+          description: "Major release adding improved multi-source fusion, redesigned alert workflows, and expanded export formats. This is the primary delivery milestone for several active customer programs.",
+          subprojects: [
+            { name: "Alert Workflow Redesign", status: "In Progress", description: "Rebuilding the alert triage and escalation workflow based on operator feedback from field trials." },
+            { name: "Export Format Expansion", status: "In Progress", description: "Adding KML, GeoJSON, and PDF report exports for interoperability with customer GIS tools." },
+          ],
+        },
+        {
+          name: "Offline Mode (Edge Deploy)", status: "In Progress", due: "Jun 1",
+          description: "Developing a lightweight, containerized version of Horizon that runs on edge hardware without cloud connectivity. Targeted at forward-deployed operators in comms-denied environments. Form factor options under evaluation include ruggedized laptops, mini-PCs, and NVIDIA Jetson-class devices.",
+          subprojects: [
+            { name: "Edge Runtime Containerization", status: "In Progress", description: "Packaging Horizon core into a Docker-based runtime that operates on low-power edge devices." },
+            { name: "Offline Data Sync Architecture", status: "Planning", description: "Designing a store-and-forward sync model so edge deployments reconcile with cloud when comms are restored." },
+            { name: "Jetson NANO Compatibility Testing", status: "Planning", description: "Validating Horizon edge runtime on NVIDIA Jetson NANO for potential MARSOC / FLOT operator use cases." },
+          ],
+        },
+        {
+          name: "MDA Buoy Data Connector", status: "Review", due: "Mar 22",
+          description: "Native integration between Horizon and the MDA Buoy telemetry stream. Allows operators to view buoy sensor data directly on the common operating picture in real time.",
+          subprojects: [],
+        },
+        {
+          name: "UX Overhaul", status: "Planning", due: "Jul 15",
+          description: "End-to-end redesign of the Horizon user interface based on operator usability studies. Focus on reducing time-to-action for common tasks and improving readability in low-light environments.",
+          subprojects: [
+            { name: "Operator Usability Study", status: "Planning", description: "Structured observation sessions with current operators to identify pain points and workflow friction." },
+          ],
+        },
       ],
       team: [
-        { name: "Name", title: "Team Lead", email: "email@company.com", isLead: true },
-        { name: "Name", title: "Senior Full-Stack Engineer", email: "email@company.com" },
-        { name: "Name", title: "Full-Stack Engineer", email: "email@company.com" },
-        { name: "Name", title: "Frontend Engineer", email: "email@company.com" },
-        { name: "Name", title: "Data Integration Engineer", email: "email@company.com" },
-        { name: "Name", title: "Backend Engineer", email: "email@company.com" },
-        { name: "Name", title: "UX/UI Designer", email: "email@company.com" },
-        { name: "Name", title: "QA Engineer", email: "email@company.com" },
-        { name: "Name", title: "Systems Analyst", email: "email@company.com" },
-        { name: "Name", title: "Program Coordinator", email: "email@company.com" },
+        { name: "Name", title: "Team Lead", email: "email@spearai.com", isLead: true },
+        { name: "Name", title: "Senior Full-Stack Engineer", email: "email@spearai.com" },
+        { name: "Name", title: "Full-Stack Engineer", email: "email@spearai.com" },
+        { name: "Name", title: "Frontend Engineer", email: "email@spearai.com" },
+        { name: "Name", title: "Data Integration Engineer", email: "email@spearai.com" },
+        { name: "Name", title: "Backend Engineer", email: "email@spearai.com" },
+        { name: "Name", title: "UX/UI Designer", email: "email@spearai.com" },
+        { name: "Name", title: "QA Engineer", email: "email@spearai.com" },
       ],
     }],
   },
@@ -127,97 +266,163 @@ const structure = [
     capabilities: ["Program management & delivery","System integration & fielding","Customer training & technical enablement","Operations & maintenance support","Mission advisory & concept development","Government contract management"],
     limitations: ["Delivery timelines subject to contract vehicle constraints","On-site support requires customer-side access approvals","Classified work scoped per individual program"],
     projects: [
-      { name: "Q2 Delivery Milestone Reviews", status: "In Progress", progress: 58, due: "Mar 31" },
-      { name: "Customer Onboarding Pack", status: "Review", progress: 80, due: "Mar 18" },
-      { name: "Field Support Playbook", status: "Completed", progress: 100, due: "Mar 1" },
-      { name: "FY25 Program Kickoffs", status: "Planning", progress: 20, due: "Apr 15" },
+      {
+        name: "Q2 Delivery Milestone Reviews", status: "In Progress", due: "Mar 31",
+        description: "Coordinating Q2 milestone reviews across all active service contracts. Tracking deliverable status, identifying risks, and preparing customer-facing reporting packages.",
+        subprojects: [],
+      },
+      {
+        name: "Customer Onboarding Pack", status: "Review", due: "Mar 18",
+        description: "Developing a standardized onboarding package for new customers that covers system orientation, access provisioning, initial training, and first 90-day support procedures.",
+        subprojects: [],
+      },
+      {
+        name: "Field Support Playbook", status: "Completed", due: "Mar 1",
+        description: "Published the first version of the field support playbook covering deployment procedures, troubleshooting guides, and escalation paths for all current platforms.",
+        subprojects: [],
+      },
+      {
+        name: "FY25 Program Kickoffs", status: "Planning", due: "Apr 15",
+        description: "Planning and scheduling kickoff activities for all new FY25 program starts, including SOW review, team assignments, and initial customer engagements.",
+        subprojects: [],
+      },
     ],
     team: [
-      { name: "Name", title: "Team Lead", email: "email@company.com", isLead: true },
-      { name: "Name", title: "Senior Program Manager", email: "email@company.com" },
-      { name: "Name", title: "Program Manager", email: "email@company.com" },
-      { name: "Name", title: "Systems Integration Lead", email: "email@company.com" },
-      { name: "Name", title: "Field Systems Engineer", email: "email@company.com" },
-      { name: "Name", title: "Technical Trainer", email: "email@company.com" },
-      { name: "Name", title: "Mission Advisor", email: "email@company.com" },
-      { name: "Name", title: "Contracts Specialist", email: "email@company.com" },
-      { name: "Name", title: "Logistics Coordinator", email: "email@company.com" },
-      { name: "Name", title: "Operations Analyst", email: "email@company.com" },
+      { name: "Name", title: "Team Lead", email: "email@spearai.com", isLead: true },
+      { name: "Name", title: "Senior Program Manager", email: "email@spearai.com" },
+      { name: "Name", title: "Program Manager", email: "email@spearai.com" },
+      { name: "Name", title: "Systems Integration Lead", email: "email@spearai.com" },
+      { name: "Name", title: "Field Systems Engineer", email: "email@spearai.com" },
+      { name: "Name", title: "Technical Trainer", email: "email@spearai.com" },
+      { name: "Name", title: "Mission Advisor", email: "email@spearai.com" },
+      { name: "Name", title: "Contracts Specialist", email: "email@spearai.com" },
     ],
     children: [
       {
         id: "harbinger", name: "Harbinger", color: "#DC2626",
         tagline: "Early warning and detection program support",
-        overview: "Harbinger is our early warning and threat detection program. This team delivers fielded solutions and advisory services focused on detecting, characterizing, and reporting on emerging threats across maritime, airspace, and cyber domains.",
+        overview: "Harbinger is our early warning and threat detection program delivering fielded solutions and advisory services focused on detecting, characterizing, and reporting on emerging threats across maritime, airspace, and cyber domains.",
         capabilities: ["Threat detection system deployment","Sensor fusion & anomaly analysis","Operator training & TTPs development","Rapid fielding & integration support","Classified program delivery","Interoperability with allied systems"],
         limitations: ["Operations governed by program-specific security protocols","Hardware supply dependent on MDA Buoy team","Software updates follow Horizon release schedule"],
         projects: [
-          { name: "Phase 2 Deployment", status: "In Progress", progress: 72, due: "Apr 10" },
-          { name: "TTP Documentation Update", status: "Review", progress: 90, due: "Mar 20" },
-          { name: "Operator Certification Program", status: "Planning", progress: 15, due: "Jun 1" },
-          { name: "Initial Fielding (Phase 1)", status: "Completed", progress: 100, due: "Feb 15" },
+          {
+            name: "Phase 2 Deployment", status: "In Progress", due: "Apr 10",
+            description: "Fielding Phase 2 of the Harbinger detection system at customer site. Includes hardware installation, software configuration, operator training, and live system handoff.",
+            subprojects: [
+              { name: "Site Survey & Prep", status: "Completed", description: "Completed physical site assessment and network infrastructure readiness review." },
+              { name: "System Installation", status: "In Progress", description: "Hardware rack installation and network integration underway at customer facility." },
+              { name: "Operator Training Program", status: "Planning", description: "Four-day training curriculum covering system operations, alert response, and basic maintenance." },
+            ],
+          },
+          {
+            name: "TTP Documentation Update", status: "Review", due: "Mar 20",
+            description: "Updating Tactics, Techniques & Procedures documentation to reflect Phase 2 system capabilities and lessons learned from Phase 1 operations.",
+            subprojects: [],
+          },
+          {
+            name: "Operator Certification Program", status: "Planning", due: "Jun 1",
+            description: "Designing a formal operator certification track that qualifies personnel to independently operate, maintain, and train others on the Harbinger system.",
+            subprojects: [],
+          },
+          {
+            name: "Initial Fielding (Phase 1)", status: "Completed", due: "Feb 15",
+            description: "Successfully completed Phase 1 fielding. System has been operational for 60+ days with zero critical incidents reported.",
+            subprojects: [],
+          },
         ],
         team: [
-          { name: "Name", title: "Team Lead", email: "email@company.com", isLead: true },
-          { name: "Name", title: "Senior Systems Engineer", email: "email@company.com" },
-          { name: "Name", title: "Threat Detection Specialist", email: "email@company.com" },
-          { name: "Name", title: "Sensor Fusion Analyst", email: "email@company.com" },
-          { name: "Name", title: "Field Integration Engineer", email: "email@company.com" },
-          { name: "Name", title: "Training Developer", email: "email@company.com" },
-          { name: "Name", title: "Intelligence Analyst", email: "email@company.com" },
-          { name: "Name", title: "Systems Operator", email: "email@company.com" },
-          { name: "Name", title: "Interoperability Specialist", email: "email@company.com" },
-          { name: "Name", title: "Program Coordinator", email: "email@company.com" },
+          { name: "Name", title: "Team Lead", email: "email@spearai.com", isLead: true },
+          { name: "Name", title: "Senior Systems Engineer", email: "email@spearai.com" },
+          { name: "Name", title: "Threat Detection Specialist", email: "email@spearai.com" },
+          { name: "Name", title: "Field Integration Engineer", email: "email@spearai.com" },
+          { name: "Name", title: "Training Developer", email: "email@spearai.com" },
+          { name: "Name", title: "Intelligence Analyst", email: "email@spearai.com" },
+          { name: "Name", title: "Program Coordinator", email: "email@spearai.com" },
         ],
       },
       {
         id: "dia", name: "DIA", color: "#0891B2",
         tagline: "Defense Intelligence Agency program support",
-        overview: "DIA (Defense Intelligence Agency) delivers advanced data analytics, machine learning, and intelligence analysis services. We turn raw sensor and operational data into actionable intelligence products for government and defense customers.",
+        overview: "Spear AI's DIA program delivers advanced data analytics, machine learning, and intelligence analysis services in support of Defense Intelligence Agency requirements. We turn raw sensor and operational data into actionable intelligence products.",
         capabilities: ["Advanced data analytics & visualization","Machine learning model development","Intelligence product generation","Custom reporting & dashboard delivery","Data pipeline design & implementation","Classified data handling & processing"],
         limitations: ["Production ML deployment coordinated with Software","Data access governed by customer data agreements","Real-time analytics requires pre-approved infrastructure"],
         projects: [
-          { name: "Anomaly Detection Model v2", status: "In Progress", progress: 52, due: "Apr 25" },
-          { name: "Intel Dashboard — Customer A", status: "In Progress", progress: 75, due: "Mar 28" },
-          { name: "Data Pipeline Architecture", status: "Completed", progress: 100, due: "Mar 3" },
-          { name: "Predictive Analytics POC", status: "Planning", progress: 5, due: "Jul 1" },
+          {
+            name: "Anomaly Detection Model v2", status: "In Progress", due: "Apr 25",
+            description: "Developing the second generation anomaly detection model with improved precision on low-signal events and reduced false positive rates. Trained on expanded operational dataset.",
+            subprojects: [
+              { name: "Training Data Expansion", status: "Completed", description: "Sourced and labeled additional training data covering edge-case anomaly signatures." },
+              { name: "Model Architecture Evaluation", status: "In Progress", description: "Benchmarking transformer-based vs. LSTM approaches for sequential anomaly detection." },
+            ],
+          },
+          {
+            name: "Intel Dashboard — Customer A", status: "In Progress", due: "Mar 28",
+            description: "Custom intelligence reporting dashboard for Customer A. Delivers near-real-time processed intelligence products with role-based views for analysts and commanders.",
+            subprojects: [
+              { name: "Commander View Design", status: "In Progress", description: "High-level summary view with key indicators, trend charts, and alert summaries for leadership consumption." },
+              { name: "Analyst Deep-Dive Module", status: "In Progress", description: "Detailed drill-down interface for analysts to explore underlying data and annotate findings." },
+            ],
+          },
+          {
+            name: "Data Pipeline Architecture", status: "Completed", due: "Mar 3",
+            description: "Designed and deployed a scalable data pipeline architecture supporting ingestion from six classified and unclassified data sources into a unified analytical environment.",
+            subprojects: [],
+          },
+          {
+            name: "Predictive Analytics POC", status: "Planning", due: "Jul 1",
+            description: "Proof of concept for predictive analytics capability that anticipates threat patterns based on historical event sequences. Will inform future program direction.",
+            subprojects: [],
+          },
         ],
         team: [
-          { name: "Name", title: "Team Lead", email: "email@company.com", isLead: true },
-          { name: "Name", title: "Senior Data Scientist", email: "email@company.com" },
-          { name: "Name", title: "Data Scientist", email: "email@company.com" },
-          { name: "Name", title: "ML Engineer", email: "email@company.com" },
-          { name: "Name", title: "Data Engineer", email: "email@company.com" },
-          { name: "Name", title: "Intelligence Analyst", email: "email@company.com" },
-          { name: "Name", title: "BI Developer", email: "email@company.com" },
-          { name: "Name", title: "Data Analyst", email: "email@company.com" },
-          { name: "Name", title: "Data Governance Specialist", email: "email@company.com" },
-          { name: "Name", title: "Program Coordinator", email: "email@company.com" },
+          { name: "Name", title: "Team Lead", email: "email@spearai.com", isLead: true },
+          { name: "Name", title: "Senior Data Scientist", email: "email@spearai.com" },
+          { name: "Name", title: "ML Engineer", email: "email@spearai.com" },
+          { name: "Name", title: "Data Engineer", email: "email@spearai.com" },
+          { name: "Name", title: "Intelligence Analyst", email: "email@spearai.com" },
+          { name: "Name", title: "BI Developer", email: "email@spearai.com" },
+          { name: "Name", title: "Program Coordinator", email: "email@spearai.com" },
         ],
       },
       {
         id: "cdao", name: "CDAO", color: "#7C3AED",
         tagline: "Chief Digital & AI Office program support",
-        overview: "CDAO (Chief Digital and Artificial Intelligence Office) support delivers advisory, integration, and fielding services aligned to DoD CDAO initiatives. We help customers adopt AI-enabled tools, digital transformation practices, and enterprise data strategies at scale.",
+        overview: "Spear AI's CDAO program delivers advisory, integration, and fielding services aligned to DoD CDAO initiatives. We help customers adopt AI-enabled tools, digital transformation practices, and enterprise data strategies at scale.",
         capabilities: ["DoD CDAO program alignment & compliance","AI/ML adoption roadmap development","Digital transformation advisory","Enterprise data strategy consulting","Responsible AI governance frameworks","Interoperability with JADC2 & enterprise systems"],
         limitations: ["Policy compliance timelines set by DoD/CDAO office","AI ethics & responsible AI reviews add lead time","Access to classified systems per program authorization"],
         projects: [
-          { name: "AI Adoption Roadmap — Customer B", status: "In Progress", progress: 60, due: "Apr 30" },
-          { name: "Responsible AI Framework", status: "Review", progress: 88, due: "Mar 25" },
-          { name: "Data Governance Playbook", status: "Completed", progress: 100, due: "Feb 28" },
-          { name: "JADC2 Integration Assessment", status: "Planning", progress: 18, due: "Jun 15" },
+          {
+            name: "AI Adoption Roadmap — Customer B", status: "In Progress", due: "Apr 30",
+            description: "Developing a phased AI adoption roadmap for Customer B covering near-term quick wins, mid-term platform investments, and long-term enterprise AI architecture.",
+            subprojects: [
+              { name: "Current State Assessment", status: "Completed", description: "Mapped existing data infrastructure, tooling, and AI literacy across customer organization." },
+              { name: "Roadmap Document Drafting", status: "In Progress", description: "Structuring phased recommendations with resource estimates, risk factors, and success metrics." },
+            ],
+          },
+          {
+            name: "Responsible AI Framework", status: "Review", due: "Mar 25",
+            description: "Producing a responsible AI governance framework tailored to DoD acquisition and operational requirements, including bias testing, explainability standards, and human-in-the-loop protocols.",
+            subprojects: [],
+          },
+          {
+            name: "Data Governance Playbook", status: "Completed", due: "Feb 28",
+            description: "Published comprehensive data governance playbook covering data classification, access controls, quality standards, and lifecycle management for AI-enabled programs.",
+            subprojects: [],
+          },
+          {
+            name: "JADC2 Integration Assessment", status: "Planning", due: "Jun 15",
+            description: "Evaluating how Spear AI capabilities can integrate with JADC2 architecture. Assessing data interfaces, latency requirements, and security accreditation pathways.",
+            subprojects: [],
+          },
         ],
         team: [
-          { name: "Name", title: "Team Lead", email: "email@company.com", isLead: true },
-          { name: "Name", title: "Senior AI Strategist", email: "email@company.com" },
-          { name: "Name", title: "Digital Transformation Advisor", email: "email@company.com" },
-          { name: "Name", title: "AI/ML Engineer", email: "email@company.com" },
-          { name: "Name", title: "Data Strategy Consultant", email: "email@company.com" },
-          { name: "Name", title: "Responsible AI Specialist", email: "email@company.com" },
-          { name: "Name", title: "Enterprise Architect", email: "email@company.com" },
-          { name: "Name", title: "Policy & Compliance Analyst", email: "email@company.com" },
-          { name: "Name", title: "Interoperability Engineer", email: "email@company.com" },
-          { name: "Name", title: "Program Coordinator", email: "email@company.com" },
+          { name: "Name", title: "Team Lead", email: "email@spearai.com", isLead: true },
+          { name: "Name", title: "Senior AI Strategist", email: "email@spearai.com" },
+          { name: "Name", title: "Digital Transformation Advisor", email: "email@spearai.com" },
+          { name: "Name", title: "AI/ML Engineer", email: "email@spearai.com" },
+          { name: "Name", title: "Enterprise Architect", email: "email@spearai.com" },
+          { name: "Name", title: "Policy & Compliance Analyst", email: "email@spearai.com" },
+          { name: "Name", title: "Program Coordinator", email: "email@spearai.com" },
         ],
       },
     ],
@@ -229,69 +434,164 @@ const statusConfig = {
   "Review":      { color: "#D97706", bg: "#FFFBEB" },
   "Completed":   { color: "#059669", bg: "#ECFDF5" },
   "Planning":    { color: "#7C3AED", bg: "#F5F3FF" },
+  "Active":      { color: "#059669", bg: "#ECFDF5" },
+  "Pending":     { color: "#D97706", bg: "#FFFBEB" },
 };
-
-const F = "'Archivo', sans-serif";
 
 function getAllChannels(str) {
   const list = [];
-  str.forEach((dept) => {
-    list.push({ ...dept, isParent: true, children: undefined });
-    if (dept.children) dept.children.forEach((child) => list.push({ ...child, isParent: false, parentId: dept.id, parentName: dept.name }));
+  str.forEach((d) => {
+    list.push({ ...d, isParent: true, children: undefined });
+    if (d.children) d.children.forEach((c) => list.push({ ...c, isParent: false, parentId: d.id, parentName: d.name }));
   });
   return list;
 }
 
+// ─── PARTNERSHIPS PAGE ────────────────────────────────────────────────
+function PartnershipsPage() {
+  const [selected, setSelected] = React.useState(null);
+
+  return (
+    <div style={{ flex: 1, overflow: "auto", background: "#FFFFFF" }}>
+      <div style={{ padding: "52px 72px 0", maxWidth: 920 }}>
+        <div style={{ marginBottom: 10 }}>
+          <h1 style={{ margin: 0, fontSize: 36, fontWeight: 800, letterSpacing: "-1px", color: "#111827", fontFamily: F }}>Partnerships</h1>
+          <p style={{ margin: 0, fontSize: 15, color: "#6B7280", fontFamily: F, fontWeight: 500, marginTop: 5 }}>Organizational relationships, contracts, and who owns them at Spear AI</p>
+        </div>
+        <div style={{ height: 1, background: "#E5E7EB", margin: "28px 0 0" }} />
+        <div style={{ height: 1, background: "#E5E7EB" }} />
+      </div>
+
+      <div style={{ padding: "44px 72px 72px", maxWidth: 920 }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: "#9CA3AF", textTransform: "uppercase", letterSpacing: "0.1em", fontFamily: F, marginBottom: 18 }}>
+          {partnerships.length} Organizations
+        </div>
+
+        <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+          {partnerships.map((p, i) => {
+            const s = statusConfig[p.status] || statusConfig["Pending"];
+            const isOpen = selected === i;
+            return (
+              <div key={i} style={{ background: "#FFFFFF", borderRadius: 12, border: "1px solid #E5E7EB", overflow: "hidden", transition: "box-shadow 0.15s" }}
+                onMouseEnter={(e) => e.currentTarget.style.boxShadow = "0 2px 12px rgba(0,0,0,0.06)"}
+                onMouseLeave={(e) => e.currentTarget.style.boxShadow = "none"}
+              >
+                {/* Row */}
+                <div
+                  onClick={() => setSelected(isOpen ? null : i)}
+                  style={{ display: "grid", gridTemplateColumns: "2fr 1.2fr 1fr 100px 32px", padding: "18px 24px", alignItems: "center", cursor: "pointer", gap: 12 }}
+                >
+                  <div>
+                    <div style={{ fontSize: 15, fontWeight: 700, color: "#111827", fontFamily: F }}>{p.org}</div>
+                    <div style={{ fontSize: 12, color: "#9CA3AF", fontFamily: F, marginTop: 2 }}>{p.type}</div>
+                  </div>
+                  <div style={{ fontSize: 13, color: "#374151", fontFamily: F, fontWeight: 500 }}>
+                    <span style={{ fontSize: 11, color: "#9CA3AF", display: "block", marginBottom: 2, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.06em" }}>Spear Contact</span>
+                    {p.spearContact}
+                  </div>
+                  <div style={{ fontSize: 13, color: "#374151", fontFamily: F }}>
+                    <span style={{ fontSize: 11, color: "#9CA3AF", display: "block", marginBottom: 2, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.06em" }}>Type</span>
+                    {p.type}
+                  </div>
+                  <span style={{ fontSize: 11, padding: "4px 10px", borderRadius: 6, background: s.bg, color: s.color, fontFamily: F, fontWeight: 700, justifySelf: "start" }}>{p.status}</span>
+                  <div style={{ fontSize: 16, color: "#9CA3AF", fontWeight: 700, textAlign: "center" }}>{isOpen ? "−" : "+"}</div>
+                </div>
+
+                {/* Expanded */}
+                {isOpen && (
+                  <div style={{ padding: "0 24px 24px", borderTop: "1px solid #F3F4F6" }}>
+                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, paddingTop: 20 }}>
+                      <div style={{ background: "#F9FAFB", borderRadius: 10, padding: 20 }}>
+                        <div style={{ fontSize: 11, fontWeight: 700, color: "#9CA3AF", textTransform: "uppercase", letterSpacing: "0.1em", fontFamily: F, marginBottom: 10 }}>About this partnership</div>
+                        <p style={{ fontSize: 14, lineHeight: 1.75, color: "#374151", fontFamily: F }}>{p.description}</p>
+                      </div>
+                      <div style={{ background: "#F9FAFB", borderRadius: 10, padding: 20 }}>
+                        <div style={{ fontSize: 11, fontWeight: 700, color: "#9CA3AF", textTransform: "uppercase", letterSpacing: "0.1em", fontFamily: F, marginBottom: 10 }}>How to leverage</div>
+                        <p style={{ fontSize: 14, lineHeight: 1.75, color: "#374151", fontFamily: F }}>{p.notes}</p>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ─── MAIN APP ─────────────────────────────────────────────────────────
 function App() {
   const allChannels = getAllChannels(structure);
+  const [activePage, setActivePage] = React.useState("dept");
   const [activeId, setActiveId] = React.useState("hardware");
   const [activeTab, setActiveTab] = React.useState("overview");
   const [expanded, setExpanded] = React.useState({ hardware: true, software: true, services: true });
+  const [expandedProject, setExpandedProject] = React.useState(null);
+
   const dept = allChannels.find((d) => d.id === activeId);
   const toggleExpand = (id) => setExpanded((prev) => ({ ...prev, [id]: !prev[id] }));
+
+  const Logo = () => (
+    <svg width="32" height="32" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ flexShrink: 0, borderRadius: 6 }}>
+      <rect width="200" height="200" rx="24" fill="black"/>
+      <path d="M45.6122 173.612H66.0204L35.4082 120.59L69.3878 61.7358H48.9796L15 120.59L45.6122 173.612Z" fill="white"/>
+      <path d="M185 120.59L174.796 102.916L144.183 155.938L76.2241 155.938L86.4282 173.612L154.387 173.612L185 120.59Z" fill="white"/>
+      <path d="M69.3882 26.3877L59.1841 44.0617L120.409 44.0617L154.388 102.916L164.592 85.2421L130.613 26.3878L69.3882 26.3877Z" fill="white"/>
+      <path d="M66.0205 138.264H133.98L144.184 120.59L110.204 61.7358H89.796L55.8164 120.59L66.0205 138.264Z" fill="white"/>
+    </svg>
+  );
 
   return (
     <div style={{ fontFamily: F, display: "flex", height: "100vh", background: "#FFFFFF", color: "#111827" }}>
 
-      {/* Dark Sidebar */}
+      {/* Sidebar */}
       <div style={{ width: 260, background: "#111827", display: "flex", flexDirection: "column", padding: "24px 0", flexShrink: 0, overflowY: "auto" }}>
+        {/* Logo + Name */}
         <div style={{ padding: "0 20px 22px", borderBottom: "1px solid #1F2937", marginBottom: 14 }}>
           <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-            <svg width="32" height="32" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ flexShrink: 0, borderRadius: 6 }}>
-              <rect width="200" height="200" rx="24" fill="black"/>
-              <path d="M45.6122 173.612H66.0204L35.4082 120.59L69.3878 61.7358H48.9796L15 120.59L45.6122 173.612Z" fill="white"/>
-              <path d="M185 120.59L174.796 102.916L144.183 155.938L76.2241 155.938L86.4282 173.612L154.387 173.612L185 120.59Z" fill="white"/>
-              <path d="M69.3882 26.3877L59.1841 44.0617L120.409 44.0617L154.388 102.916L164.592 85.2421L130.613 26.3878L69.3882 26.3877Z" fill="white"/>
-              <path d="M66.0205 138.264H133.98L144.184 120.59L110.204 61.7358H89.796L55.8164 120.59L66.0205 138.264Z" fill="white"/>
-            </svg>
+            <Logo />
             <div>
               <div style={{ fontSize: 19, fontWeight: 800, color: "#FFFFFF", letterSpacing: "-0.5px", fontFamily: F }}>Spear AI</div>
-              <div style={{ fontSize: 13, color: "#6B7280", marginTop: 2, fontFamily: F, fontWeight: 500 }}>Department Channels</div>
+              <div style={{ fontSize: 13, color: "#6B7280", marginTop: 2, fontFamily: F, fontWeight: 500 }}>Internal Portal</div>
             </div>
           </div>
         </div>
-        <div style={{ padding: "0 20px 10px", fontSize: 11, fontWeight: 700, color: "#4B5563", textTransform: "uppercase", letterSpacing: "0.12em", fontFamily: F }}>Departments</div>
 
+        {/* Partnerships link */}
+        <button onClick={() => setActivePage("partnerships")} style={{
+          display: "flex", alignItems: "center", gap: 9, padding: "9px 10px 9px 20px",
+          background: activePage === "partnerships" ? "#1F2937" : "transparent",
+          border: "none", cursor: "pointer", textAlign: "left", margin: "1px 10px", borderRadius: 6, width: "calc(100% - 20px)",
+        }}>
+          <span style={{ fontSize: 16, color: activePage === "partnerships" ? "#FFFFFF" : "#D1D5DB", fontFamily: F, fontWeight: 700 }}>Partnerships</span>
+          {activePage === "partnerships" && <span style={{ marginLeft: "auto", width: 6, height: 6, borderRadius: "50%", background: "#059669", flexShrink: 0 }} />}
+        </button>
+
+        <div style={{ padding: "14px 20px 10px", fontSize: 11, fontWeight: 700, color: "#4B5563", textTransform: "uppercase", letterSpacing: "0.12em", fontFamily: F }}>Departments</div>
+
+        {/* Dept nav */}
         {structure.map((d) => (
           <div key={d.id}>
-            <div style={{ display: "flex", alignItems: "center", margin: "1px 10px", borderRadius: 6, background: activeId === d.id ? "#1F2937" : "transparent" }}>
+            <div style={{ display: "flex", alignItems: "center", margin: "1px 10px", borderRadius: 6, background: activePage === "dept" && activeId === d.id ? "#1F2937" : "transparent" }}>
               <button onClick={() => toggleExpand(d.id)} style={{ background: "none", border: "none", cursor: "pointer", padding: "9px 4px 9px 10px", color: "#4B5563", fontSize: 9 }}>
                 {expanded[d.id] ? "▾" : "▸"}
               </button>
-              <button onClick={() => { setActiveId(d.id); setActiveTab("overview"); }} style={{ flex: 1, display: "flex", alignItems: "center", gap: 9, padding: "9px 10px 9px 2px", background: "transparent", border: "none", cursor: "pointer", textAlign: "left" }}>
-                <span style={{ fontSize: 16, color: activeId === d.id ? "#FFFFFF" : "#D1D5DB", fontFamily: F, fontWeight: 700 }}>{d.name}</span>
-                {activeId === d.id && <span style={{ marginLeft: "auto", width: 6, height: 6, borderRadius: "50%", background: d.color, flexShrink: 0 }} />}
+              <button onClick={() => { setActivePage("dept"); setActiveId(d.id); setActiveTab("overview"); setExpandedProject(null); }} style={{ flex: 1, display: "flex", alignItems: "center", gap: 9, padding: "9px 10px 9px 2px", background: "transparent", border: "none", cursor: "pointer", textAlign: "left" }}>
+                <span style={{ fontSize: 16, color: activePage === "dept" && activeId === d.id ? "#FFFFFF" : "#D1D5DB", fontFamily: F, fontWeight: 700 }}>{d.name}</span>
+                {activePage === "dept" && activeId === d.id && <span style={{ marginLeft: "auto", width: 6, height: 6, borderRadius: "50%", background: d.color, flexShrink: 0 }} />}
               </button>
             </div>
             {expanded[d.id] && d.children && d.children.map((child) => (
-              <button key={child.id} onClick={() => { setActiveId(child.id); setActiveTab("overview"); }} style={{
+              <button key={child.id} onClick={() => { setActivePage("dept"); setActiveId(child.id); setActiveTab("overview"); setExpandedProject(null); }} style={{
                 display: "flex", alignItems: "center", gap: 8, padding: "7px 10px 7px 42px",
                 width: "calc(100% - 20px)", margin: "1px 10px",
-                background: activeId === child.id ? "#1F2937" : "transparent",
+                background: activePage === "dept" && activeId === child.id ? "#1F2937" : "transparent",
                 border: "none", cursor: "pointer", textAlign: "left", borderRadius: 6,
               }}>
-                <span style={{ fontSize: 15, color: activeId === child.id ? "#FFFFFF" : "#9CA3AF", fontFamily: F, fontWeight: activeId === child.id ? 600 : 400 }}>{child.name}</span>
-                {activeId === child.id && <span style={{ marginLeft: "auto", width: 5, height: 5, borderRadius: "50%", background: child.color, flexShrink: 0 }} />}
+                <span style={{ fontSize: 15, color: activePage === "dept" && activeId === child.id ? "#FFFFFF" : "#9CA3AF", fontFamily: F, fontWeight: activePage === "dept" && activeId === child.id ? 600 : 400 }}>{child.name}</span>
+                {activePage === "dept" && activeId === child.id && <span style={{ marginLeft: "auto", width: 5, height: 5, borderRadius: "50%", background: child.color, flexShrink: 0 }} />}
               </button>
             ))}
           </div>
@@ -299,179 +599,226 @@ function App() {
       </div>
 
       {/* Main */}
-      <div style={{ flex: 1, overflow: "auto", background: "#FFFFFF" }}>
-        <div style={{ padding: "52px 72px 0", maxWidth: 920 }}>
-
-          {dept.parentName && (
-            <div style={{ fontSize: 12, color: "#9CA3AF", fontFamily: F, fontWeight: 500, marginBottom: 16 }}>
-              <span style={{ cursor: "pointer", color: "#6B7280" }} onClick={() => { setActiveId(dept.parentId); setActiveTab("overview"); }}>{dept.parentName}</span>
-              <span style={{ margin: "0 6px", color: "#D1D5DB" }}>›</span>
-              <span style={{ color: "#111827", fontWeight: 700 }}>{dept.name}</span>
-            </div>
-          )}
-
-          <div style={{ display: "flex", alignItems: "center", gap: 20, marginBottom: 10 }}>
-            <div style={{ flex: 1 }}>
-              <h1 style={{ margin: 0, fontSize: 36, fontWeight: 800, letterSpacing: "-1px", color: "#111827", fontFamily: F }}>{dept.name}</h1>
-              <p style={{ margin: 0, fontSize: 15, color: "#6B7280", fontFamily: F, fontWeight: 500, marginTop: 5, lineHeight: 1.5 }}>{dept.tagline}</p>
-            </div>
-            <div style={{ padding: "5px 14px", borderRadius: 6, background: dept.color + "15", border: `1.5px solid ${dept.color}35`, flexShrink: 0 }}>
-              <span style={{ fontSize: 11, fontWeight: 700, color: dept.color, fontFamily: F, textTransform: "uppercase", letterSpacing: "0.07em" }}>
-                {dept.parentName ? dept.parentName : "Department"}
-              </span>
-            </div>
-          </div>
-
-          <div style={{ height: 1, background: "#E5E7EB", margin: "28px 0 0" }} />
-          <div style={{ display: "flex" }}>
-            {["overview", "capabilities", "projects", "team"].map((tab) => (
-              <button key={tab} onClick={() => setActiveTab(tab)} style={{
-                padding: "13px 22px", border: "none", background: "transparent", cursor: "pointer",
-                fontSize: 13, fontFamily: F, textTransform: "capitalize",
-                color: activeTab === tab ? dept.color : "#6B7280",
-                fontWeight: activeTab === tab ? 700 : 500,
-                borderBottom: `2.5px solid ${activeTab === tab ? dept.color : "transparent"}`,
-                transition: "all 0.15s",
-              }}>{tab}</button>
-            ))}
-          </div>
-          <div style={{ height: 1, background: "#E5E7EB" }} />
-        </div>
-
-        <div style={{ padding: "44px 72px 72px", maxWidth: 920 }}>
-
-          {activeTab === "overview" && (
-            <div>
-              <div style={{ background: "#F9FAFB", borderRadius: 12, padding: 30, border: "1px solid #E5E7EB", marginBottom: 32 }}>
-                <div style={{ fontSize: 11, fontWeight: 700, color: "#9CA3AF", textTransform: "uppercase", letterSpacing: "0.1em", fontFamily: F, marginBottom: 14 }}>About this {dept.parentName ? "program" : "department"}</div>
-                <p style={{ margin: 0, fontSize: 15, lineHeight: 1.85, color: "#374151", fontFamily: F, fontWeight: 400 }}>{dept.overview}</p>
+      {activePage === "partnerships" ? <PartnershipsPage /> : (
+        <div style={{ flex: 1, overflow: "auto", background: "#FFFFFF" }}>
+          <div style={{ padding: "52px 72px 0", maxWidth: 920 }}>
+            {dept.parentName && (
+              <div style={{ fontSize: 12, color: "#9CA3AF", fontFamily: F, fontWeight: 500, marginBottom: 16 }}>
+                <span style={{ cursor: "pointer", color: "#6B7280" }} onClick={() => { setActiveId(dept.parentId); setActiveTab("overview"); setExpandedProject(null); }}>{dept.parentName}</span>
+                <span style={{ margin: "0 6px", color: "#D1D5DB" }}>›</span>
+                <span style={{ color: "#111827", fontWeight: 700 }}>{dept.name}</span>
               </div>
-              <div style={{ fontSize: 11, fontWeight: 700, color: "#9CA3AF", textTransform: "uppercase", letterSpacing: "0.1em", fontFamily: F, marginBottom: 18 }}>Active Projects</div>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
-                {dept.projects.map((p) => {
+            )}
+            <div style={{ display: "flex", alignItems: "center", gap: 20, marginBottom: 10 }}>
+              <div style={{ flex: 1 }}>
+                <h1 style={{ margin: 0, fontSize: 36, fontWeight: 800, letterSpacing: "-1px", color: "#111827", fontFamily: F }}>{dept.name}</h1>
+                <p style={{ margin: 0, fontSize: 15, color: "#6B7280", fontFamily: F, fontWeight: 500, marginTop: 5, lineHeight: 1.5 }}>{dept.tagline}</p>
+              </div>
+              <div style={{ padding: "5px 14px", borderRadius: 6, background: dept.color + "15", border: `1.5px solid ${dept.color}35`, flexShrink: 0 }}>
+                <span style={{ fontSize: 11, fontWeight: 700, color: dept.color, fontFamily: F, textTransform: "uppercase", letterSpacing: "0.07em" }}>
+                  {dept.parentName ? dept.parentName : "Department"}
+                </span>
+              </div>
+            </div>
+            <div style={{ height: 1, background: "#E5E7EB", margin: "28px 0 0" }} />
+            <div style={{ display: "flex" }}>
+              {["overview", "capabilities", "projects", "team"].map((tab) => (
+                <button key={tab} onClick={() => { setActiveTab(tab); setExpandedProject(null); }} style={{
+                  padding: "13px 22px", border: "none", background: "transparent", cursor: "pointer",
+                  fontSize: 13, fontFamily: F, textTransform: "capitalize",
+                  color: activeTab === tab ? dept.color : "#6B7280",
+                  fontWeight: activeTab === tab ? 700 : 500,
+                  borderBottom: `2.5px solid ${activeTab === tab ? dept.color : "transparent"}`,
+                  transition: "all 0.15s",
+                }}>{tab}</button>
+              ))}
+            </div>
+            <div style={{ height: 1, background: "#E5E7EB" }} />
+          </div>
+
+          <div style={{ padding: "44px 72px 72px", maxWidth: 920 }}>
+
+            {/* OVERVIEW */}
+            {activeTab === "overview" && (
+              <div>
+                <div style={{ background: "#F9FAFB", borderRadius: 12, padding: 30, border: "1px solid #E5E7EB", marginBottom: 32 }}>
+                  <div style={{ fontSize: 11, fontWeight: 700, color: "#9CA3AF", textTransform: "uppercase", letterSpacing: "0.1em", fontFamily: F, marginBottom: 14 }}>About this {dept.parentName ? "program" : "department"}</div>
+                  <p style={{ margin: 0, fontSize: 15, lineHeight: 1.85, color: "#374151", fontFamily: F }}>{dept.overview}</p>
+                </div>
+                <div style={{ fontSize: 11, fontWeight: 700, color: "#9CA3AF", textTransform: "uppercase", letterSpacing: "0.1em", fontFamily: F, marginBottom: 18 }}>Active Projects</div>
+                <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+                  {dept.projects.map((p, i) => {
+                    const s = statusConfig[p.status];
+                    const isOpen = expandedProject === i;
+                    return (
+                      <div key={i} style={{ background: "#FFFFFF", borderRadius: 12, border: "1px solid #E5E7EB", overflow: "hidden" }}>
+                        <div onClick={() => setExpandedProject(isOpen ? null : i)} style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", padding: "18px 22px", cursor: "pointer" }}
+                          onMouseEnter={(e) => e.currentTarget.style.background = "#F9FAFB"}
+                          onMouseLeave={(e) => e.currentTarget.style.background = "transparent"}
+                        >
+                          <div style={{ flex: 1, paddingRight: 16 }}>
+                            <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 6 }}>
+                              <span style={{ fontSize: 14, fontWeight: 700, color: "#111827", fontFamily: F }}>{p.name}</span>
+                              <span style={{ fontSize: 11, padding: "2px 9px", borderRadius: 6, background: s.bg, color: s.color, fontFamily: F, fontWeight: 700, flexShrink: 0 }}>{p.status}</span>
+                              {p.due && <span style={{ fontSize: 12, color: "#9CA3AF", fontFamily: F }}>Due {p.due}</span>}
+                            </div>
+                            <p style={{ margin: 0, fontSize: 13, color: "#6B7280", fontFamily: F, lineHeight: 1.6 }}>{p.description}</p>
+                          </div>
+                          <div style={{ fontSize: 18, color: "#9CA3AF", fontWeight: 700, flexShrink: 0, marginTop: 2 }}>{isOpen ? "−" : "+"}</div>
+                        </div>
+                        {isOpen && p.subprojects && p.subprojects.length > 0 && (
+                          <div style={{ padding: "0 22px 20px", borderTop: "1px solid #F3F4F6" }}>
+                            <div style={{ fontSize: 11, fontWeight: 700, color: "#9CA3AF", textTransform: "uppercase", letterSpacing: "0.1em", fontFamily: F, margin: "16px 0 12px" }}>Sub-projects</div>
+                            <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+                              {p.subprojects.map((sp, si) => {
+                                const ss = statusConfig[sp.status];
+                                return (
+                                  <div key={si} style={{ background: "#F9FAFB", borderRadius: 8, padding: "14px 16px", border: "1px solid #F3F4F6" }}>
+                                    <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 5 }}>
+                                      <div style={{ width: 6, height: 6, borderRadius: "50%", background: dept.color, flexShrink: 0 }} />
+                                      <span style={{ fontSize: 13, fontWeight: 700, color: "#111827", fontFamily: F }}>{sp.name}</span>
+                                      <span style={{ fontSize: 11, padding: "2px 8px", borderRadius: 5, background: ss.bg, color: ss.color, fontFamily: F, fontWeight: 700 }}>{sp.status}</span>
+                                    </div>
+                                    <p style={{ margin: 0, fontSize: 13, color: "#6B7280", fontFamily: F, lineHeight: 1.6, paddingLeft: 14 }}>{sp.description}</p>
+                                  </div>
+                                );
+                              })}
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+
+            {/* CAPABILITIES */}
+            {activeTab === "capabilities" && (
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24 }}>
+                <div style={{ background: "#F9FAFB", borderRadius: 12, padding: 30, border: "1px solid #E5E7EB" }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 24 }}>
+                    <div style={{ width: 24, height: 24, borderRadius: 6, background: dept.color, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                      <span style={{ fontSize: 12, color: "white", fontWeight: 800 }}>✓</span>
+                    </div>
+                    <span style={{ fontSize: 14, fontWeight: 800, fontFamily: F, color: "#111827" }}>What we can do</span>
+                  </div>
+                  {dept.capabilities.map((c) => (
+                    <div key={c} style={{ display: "flex", gap: 12, marginBottom: 16, alignItems: "flex-start" }}>
+                      <div style={{ width: 7, height: 7, borderRadius: "50%", background: dept.color, marginTop: 8, flexShrink: 0 }} />
+                      <span style={{ fontSize: 14, color: "#374151", fontFamily: F, lineHeight: 1.65 }}>{c}</span>
+                    </div>
+                  ))}
+                </div>
+                <div style={{ background: "#F9FAFB", borderRadius: 12, padding: 30, border: "1px solid #E5E7EB" }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 24 }}>
+                    <div style={{ width: 24, height: 24, borderRadius: 6, background: "#E5E7EB", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                      <span style={{ fontSize: 13, color: "#9CA3AF", fontWeight: 800 }}>—</span>
+                    </div>
+                    <span style={{ fontSize: 14, fontWeight: 800, fontFamily: F, color: "#111827" }}>Limitations & scope</span>
+                  </div>
+                  {dept.limitations.map((l) => (
+                    <div key={l} style={{ display: "flex", gap: 12, marginBottom: 16, alignItems: "flex-start" }}>
+                      <div style={{ width: 7, height: 7, borderRadius: "50%", background: "#D1D5DB", marginTop: 8, flexShrink: 0 }} />
+                      <span style={{ fontSize: 14, color: "#6B7280", fontFamily: F, lineHeight: 1.65 }}>{l}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* PROJECTS TAB */}
+            {activeTab === "projects" && (
+              <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+                {dept.projects.map((p, i) => {
                   const s = statusConfig[p.status];
+                  const isOpen = expandedProject === i;
                   return (
-                    <div key={p.name} style={{ background: "#FFFFFF", borderRadius: 12, padding: 22, border: "1px solid #E5E7EB" }}>
-                      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 16 }}>
-                        <div style={{ fontSize: 14, fontWeight: 700, color: "#111827", fontFamily: F, lineHeight: 1.4 }}>{p.name}</div>
-                        <span style={{ fontSize: 11, padding: "3px 10px", borderRadius: 6, background: s.bg, color: s.color, fontFamily: F, fontWeight: 700, flexShrink: 0, marginLeft: 12 }}>{p.status}</span>
+                    <div key={i} style={{ background: "#FFFFFF", borderRadius: 12, border: "1px solid #E5E7EB", overflow: "hidden" }}>
+                      <div onClick={() => setExpandedProject(isOpen ? null : i)} style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", padding: "20px 24px", cursor: "pointer" }}
+                        onMouseEnter={(e) => e.currentTarget.style.background = "#F9FAFB"}
+                        onMouseLeave={(e) => e.currentTarget.style.background = "transparent"}
+                      >
+                        <div style={{ flex: 1, paddingRight: 16 }}>
+                          <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 8 }}>
+                            <span style={{ fontSize: 15, fontWeight: 700, color: "#111827", fontFamily: F }}>{p.name}</span>
+                            <span style={{ fontSize: 11, padding: "3px 10px", borderRadius: 6, background: s.bg, color: s.color, fontFamily: F, fontWeight: 700 }}>{p.status}</span>
+                            {p.due && <span style={{ fontSize: 12, color: "#9CA3AF", fontFamily: F }}>Due {p.due}</span>}
+                          </div>
+                          <p style={{ margin: 0, fontSize: 14, color: "#6B7280", fontFamily: F, lineHeight: 1.7 }}>{p.description}</p>
+                          {p.subprojects && p.subprojects.length > 0 && (
+                            <div style={{ fontSize: 12, color: "#9CA3AF", marginTop: 8, fontFamily: F }}>{p.subprojects.length} sub-project{p.subprojects.length > 1 ? "s" : ""} — click to expand</div>
+                          )}
+                        </div>
+                        <div style={{ fontSize: 18, color: "#9CA3AF", fontWeight: 700, flexShrink: 0 }}>{isOpen ? "−" : "+"}</div>
                       </div>
-                      <div style={{ height: 5, background: "#F3F4F6", borderRadius: 99, overflow: "hidden" }}>
-                        <div style={{ height: "100%", width: `${p.progress}%`, background: dept.color, borderRadius: 99 }} />
-                      </div>
-                      <div style={{ display: "flex", justifyContent: "space-between", marginTop: 10 }}>
-                        <span style={{ fontSize: 12, color: "#9CA3AF", fontFamily: F, fontWeight: 500 }}>{p.progress}% complete</span>
-                        <span style={{ fontSize: 12, color: "#9CA3AF", fontFamily: F, fontWeight: 500 }}>Due {p.due}</span>
-                      </div>
+                      {isOpen && p.subprojects && p.subprojects.length > 0 && (
+                        <div style={{ padding: "0 24px 22px", borderTop: "1px solid #F3F4F6" }}>
+                          <div style={{ fontSize: 11, fontWeight: 700, color: "#9CA3AF", textTransform: "uppercase", letterSpacing: "0.1em", fontFamily: F, margin: "16px 0 12px" }}>Sub-projects</div>
+                          <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+                            {p.subprojects.map((sp, si) => {
+                              const ss = statusConfig[sp.status];
+                              return (
+                                <div key={si} style={{ background: "#F9FAFB", borderRadius: 8, padding: "14px 16px" }}>
+                                  <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 5 }}>
+                                    <div style={{ width: 6, height: 6, borderRadius: "50%", background: dept.color, flexShrink: 0 }} />
+                                    <span style={{ fontSize: 13, fontWeight: 700, color: "#111827", fontFamily: F }}>{sp.name}</span>
+                                    <span style={{ fontSize: 11, padding: "2px 8px", borderRadius: 5, background: ss.bg, color: ss.color, fontFamily: F, fontWeight: 700 }}>{sp.status}</span>
+                                  </div>
+                                  <p style={{ margin: 0, fontSize: 13, color: "#6B7280", fontFamily: F, lineHeight: 1.6, paddingLeft: 14 }}>{sp.description}</p>
+                                </div>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      )}
                     </div>
                   );
                 })}
               </div>
-            </div>
-          )}
+            )}
 
-          {activeTab === "capabilities" && (
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24 }}>
-              <div style={{ background: "#F9FAFB", borderRadius: 12, padding: 30, border: "1px solid #E5E7EB" }}>
-                <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 24 }}>
-                  <div style={{ width: 24, height: 24, borderRadius: 6, background: dept.color, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                    <span style={{ fontSize: 12, color: "white", fontWeight: 800 }}>✓</span>
-                  </div>
-                  <span style={{ fontSize: 14, fontWeight: 800, fontFamily: F, color: "#111827" }}>What we can do</span>
+            {/* TEAM */}
+            {activeTab === "team" && (
+              <div style={{ background: "#FFFFFF", borderRadius: 12, border: "1px solid #E5E7EB", overflow: "hidden" }}>
+                <div style={{ display: "grid", gridTemplateColumns: "2fr 2fr 2fr", padding: "13px 26px", borderBottom: "1px solid #E5E7EB", background: "#F9FAFB" }}>
+                  {["Name", "Title", "Email"].map((h) => (
+                    <div key={h} style={{ fontSize: 11, fontWeight: 700, color: "#9CA3AF", textTransform: "uppercase", letterSpacing: "0.08em", fontFamily: F }}>{h}</div>
+                  ))}
                 </div>
-                {dept.capabilities.map((c) => (
-                  <div key={c} style={{ display: "flex", gap: 12, marginBottom: 16, alignItems: "flex-start" }}>
-                    <div style={{ width: 7, height: 7, borderRadius: "50%", background: dept.color, marginTop: 8, flexShrink: 0 }} />
-                    <span style={{ fontSize: 14, color: "#374151", fontFamily: F, lineHeight: 1.65, fontWeight: 400 }}>{c}</span>
-                  </div>
-                ))}
-              </div>
-              <div style={{ background: "#F9FAFB", borderRadius: 12, padding: 30, border: "1px solid #E5E7EB" }}>
-                <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 24 }}>
-                  <div style={{ width: 24, height: 24, borderRadius: 6, background: "#E5E7EB", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                    <span style={{ fontSize: 13, color: "#9CA3AF", fontWeight: 800 }}>—</span>
-                  </div>
-                  <span style={{ fontSize: 14, fontWeight: 800, fontFamily: F, color: "#111827" }}>Limitations & scope</span>
-                </div>
-                {dept.limitations.map((l) => (
-                  <div key={l} style={{ display: "flex", gap: 12, marginBottom: 16, alignItems: "flex-start" }}>
-                    <div style={{ width: 7, height: 7, borderRadius: "50%", background: "#D1D5DB", marginTop: 8, flexShrink: 0 }} />
-                    <span style={{ fontSize: 14, color: "#6B7280", fontFamily: F, lineHeight: 1.65, fontWeight: 400 }}>{l}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {activeTab === "projects" && (
-            <div style={{ background: "#FFFFFF", borderRadius: 12, border: "1px solid #E5E7EB", overflow: "hidden" }}>
-              <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr 80px", padding: "13px 26px", borderBottom: "1px solid #E5E7EB", background: "#F9FAFB" }}>
-                {["Project", "Status", "Progress", "Due"].map((h) => (
-                  <div key={h} style={{ fontSize: 11, fontWeight: 700, color: "#9CA3AF", textTransform: "uppercase", letterSpacing: "0.08em", fontFamily: F }}>{h}</div>
-                ))}
-              </div>
-              {dept.projects.map((p, i) => {
-                const s = statusConfig[p.status];
-                return (
-                  <div key={p.name}
-                    style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr 80px", padding: "18px 26px", alignItems: "center", borderBottom: i < dept.projects.length - 1 ? "1px solid #F3F4F6" : "none", transition: "background 0.1s" }}
-                    onMouseEnter={(e) => e.currentTarget.style.background = "#F9FAFB"}
-                    onMouseLeave={(e) => e.currentTarget.style.background = "transparent"}
+                {dept.team && dept.team.map((m, i) => (
+                  <div key={i} style={{
+                    display: "grid", gridTemplateColumns: "2fr 2fr 2fr", padding: "16px 26px", alignItems: "center",
+                    borderBottom: i < dept.team.length - 1 ? "1px solid #F3F4F6" : "none",
+                    background: m.isLead ? dept.color + "08" : "transparent", transition: "background 0.1s",
+                  }}
+                    onMouseEnter={(e) => e.currentTarget.style.background = m.isLead ? dept.color + "12" : "#F9FAFB"}
+                    onMouseLeave={(e) => e.currentTarget.style.background = m.isLead ? dept.color + "08" : "transparent"}
                   >
-                    <div style={{ fontSize: 14, fontWeight: 600, color: "#111827", fontFamily: F }}>{p.name}</div>
-                    <div><span style={{ fontSize: 11, padding: "4px 10px", borderRadius: 6, background: s.bg, color: s.color, fontFamily: F, fontWeight: 700 }}>{p.status}</span></div>
-                    <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                      <div style={{ flex: 1, height: 5, background: "#F3F4F6", borderRadius: 99, maxWidth: 100 }}>
-                        <div style={{ height: "100%", width: `${p.progress}%`, background: dept.color, borderRadius: 99 }} />
+                    <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                      <div style={{ width: 32, height: 32, borderRadius: "50%", background: m.isLead ? dept.color : "#E5E7EB", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                        <span style={{ fontSize: 11, fontWeight: 800, color: m.isLead ? "white" : "#9CA3AF", fontFamily: F }}>
+                          {m.name === "Name" ? "?" : m.name.split(" ").map(n => n[0]).join("").slice(0, 2)}
+                        </span>
                       </div>
-                      <span style={{ fontSize: 12, color: "#9CA3AF", fontFamily: F, fontWeight: 500, minWidth: 30 }}>{p.progress}%</span>
+                      <div>
+                        <span style={{ fontSize: 14, fontWeight: m.isLead ? 800 : 600, color: "#111827", fontFamily: F }}>{m.name}</span>
+                        {m.isLead && <span style={{ marginLeft: 7, fontSize: 10, padding: "2px 7px", borderRadius: 5, background: dept.color, color: "white", fontFamily: F, fontWeight: 700 }}>Lead</span>}
+                      </div>
                     </div>
-                    <div style={{ fontSize: 13, color: "#6B7280", fontFamily: F, fontWeight: 500 }}>{p.due}</div>
+                    <div style={{ fontSize: 13, color: "#6B7280", fontFamily: F }}>{m.title}</div>
+                    <a href={`mailto:${m.email}`} style={{ fontSize: 13, color: dept.color, fontFamily: F, textDecoration: "none", fontWeight: 500 }}
+                      onMouseEnter={(e) => e.target.style.textDecoration = "underline"}
+                      onMouseLeave={(e) => e.target.style.textDecoration = "none"}
+                    >{m.email}</a>
                   </div>
-                );
-              })}
-            </div>
-          )}
-
-          {activeTab === "team" && (
-            <div style={{ background: "#FFFFFF", borderRadius: 12, border: "1px solid #E5E7EB", overflow: "hidden" }}>
-              <div style={{ display: "grid", gridTemplateColumns: "2fr 2fr 2fr", padding: "13px 26px", borderBottom: "1px solid #E5E7EB", background: "#F9FAFB" }}>
-                {["Name", "Title", "Email"].map((h) => (
-                  <div key={h} style={{ fontSize: 11, fontWeight: 700, color: "#9CA3AF", textTransform: "uppercase", letterSpacing: "0.08em", fontFamily: F }}>{h}</div>
                 ))}
               </div>
-              {dept.team && dept.team.map((m, i) => (
-                <div key={i} style={{
-                  display: "grid", gridTemplateColumns: "2fr 2fr 2fr", padding: "16px 26px", alignItems: "center",
-                  borderBottom: i < dept.team.length - 1 ? "1px solid #F3F4F6" : "none",
-                  background: m.isLead ? dept.color + "08" : "transparent", transition: "background 0.1s",
-                }}
-                  onMouseEnter={(e) => e.currentTarget.style.background = m.isLead ? dept.color + "12" : "#F9FAFB"}
-                  onMouseLeave={(e) => e.currentTarget.style.background = m.isLead ? dept.color + "08" : "transparent"}
-                >
-                  <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-                    <div style={{ width: 32, height: 32, borderRadius: "50%", background: m.isLead ? dept.color : "#E5E7EB", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                      <span style={{ fontSize: 11, fontWeight: 800, color: m.isLead ? "white" : "#9CA3AF", fontFamily: F }}>
-                        {m.name === "Name" ? "?" : m.name.split(" ").map(n => n[0]).join("").slice(0, 2)}
-                      </span>
-                    </div>
-                    <div>
-                      <span style={{ fontSize: 14, fontWeight: m.isLead ? 800 : 600, color: "#111827", fontFamily: F }}>{m.name}</span>
-                      {m.isLead && <span style={{ marginLeft: 7, fontSize: 10, padding: "2px 7px", borderRadius: 5, background: dept.color, color: "white", fontFamily: F, fontWeight: 700 }}>Lead</span>}
-                    </div>
-                  </div>
-                  <div style={{ fontSize: 13, color: "#6B7280", fontFamily: F }}>{m.title}</div>
-                  <a href={`mailto:${m.email}`} style={{ fontSize: 13, color: dept.color, fontFamily: F, textDecoration: "none", fontWeight: 500 }}
-                    onMouseEnter={(e) => e.target.style.textDecoration = "underline"}
-                    onMouseLeave={(e) => e.target.style.textDecoration = "none"}
-                  >{m.email}</a>
-                </div>
-              ))}
-            </div>
-          )}
+            )}
 
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }
